@@ -1,0 +1,7 @@
+#ignore everything
+*
+
+# exceptions
+!.gitignore
+!Assets/*
+!ProjectSettings/*
