@@ -6,6 +6,8 @@
 !Assets/**
 !ProjectSettings/
 !ProjectSettings/**
+!README.md
+!.gitignore
 
 # Temporary files
 [Ll]ibrary/
