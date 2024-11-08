@@ -1,38 +1,49 @@
 using System.Collections;
 using UnityEngine;
 
+// This CoroutineExample class demonstrates how to use a coroutine
+// to alternate the color of multiple GameObjects (cubes).
 public class CoroutineExample : MonoBehaviour
 {
+    // Reference to an array of GameObjects (cubes) to modify
     [SerializeField] private GameObject[] cubes;
-    [SerializeField] private Material originalMaterial; // Assign your Blue material here
+
+    // Original material of the cubes (should be assigned in the Inspector)
+    [SerializeField] private Material originalMaterial;
+
+    // Highlight color used to change the cubes' color temporarily
     [SerializeField] private Color highlightColor = Color.red;
 
+    // Method called on start, which initiates the coroutine MyCoroutine.
     void Start()
     {
         StartCoroutine(MyCoroutine());
     }
 
+    // Coroutine that loops indefinitely through the cubes, changes their color, and resets it after a delay.
     IEnumerator MyCoroutine()
     {
-        int index = 0;
+        int index = 0; // Initializes the index to loop through the cubes
 
-        while (true)
+        while (true) // Infinite loop to alternate between the cubes
         {
-                if (cubes[index] == null)
+            // Checks if the current cube still exists (hasn't been destroyed)
+            if (cubes[index] == null)
             {
-                yield break; // Exit the coroutine if any cube is destroyed
+                yield break; // Exits the coroutine if any cube is destroyed
             }
-            // Change the color of the current cube to red
+
+            // Gets the Renderer of the current cube and changes its color to red
             Renderer currentRenderer = cubes[index].GetComponent<Renderer>();
             currentRenderer.material.color = highlightColor;
 
-            // Wait for 1 second
+            // Waits for one second before moving to the next cube
             yield return new WaitForSeconds(1);
 
-            // Change the material of the current cube back to the original
+            // Resets the current cube's material to the original
             currentRenderer.material = originalMaterial;
 
-            // Move to the next cube in the array, loop back to 0 if needed
+            // Moves to the next cube in the array (loops back to the start if needed)
             index = (index + 1) % cubes.Length;
         }
     }
