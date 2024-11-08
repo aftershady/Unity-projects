@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 147355258}
   m_Layer: 0
   m_Name: haut 1 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 164733442}
   m_Layer: 0
   m_Name: haut 2
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 436173917}
   m_Layer: 0
   m_Name: bas 3
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,8 +1432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.609859, y: 3.27}
-  m_SizeDelta: {x: 5, y: 5}
+  m_AnchoredPosition: {x: -4.87, y: 2.12}
+  m_SizeDelta: {x: 25, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475455304
 MonoBehaviour:
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "test colisions \ncaisses"
+  m_text: test colisions caisses, cliquez dessus pour faire disparaitre
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 484374872}
   m_Layer: 0
   m_Name: bas 1 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1717,7 +1717,7 @@ GameObject:
   - component: {fileID: 502525242}
   m_Layer: 0
   m_Name: bas 4
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1850,7 +1850,7 @@ GameObject:
   - component: {fileID: 614688979}
   m_Layer: 0
   m_Name: bas 3 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1983,7 +1983,7 @@ GameObject:
   - component: {fileID: 620783575}
   m_Layer: 0
   m_Name: haut 3
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2514,7 +2514,7 @@ GameObject:
   - component: {fileID: 826654477}
   m_Layer: 0
   m_Name: haut 3 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2647,7 +2647,7 @@ GameObject:
   - component: {fileID: 851132628}
   m_Layer: 0
   m_Name: haut 1
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2780,7 +2780,7 @@ GameObject:
   - component: {fileID: 861412574}
   m_Layer: 0
   m_Name: haut 2 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2913,7 +2913,7 @@ GameObject:
   - component: {fileID: 939668799}
   m_Layer: 0
   m_Name: bas 4 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3271,7 +3271,7 @@ GameObject:
   - component: {fileID: 1475227239}
   m_Layer: 0
   m_Name: bas 2 (1)
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3920,7 +3920,7 @@ GameObject:
   - component: {fileID: 1747308467}
   m_Layer: 0
   m_Name: bas 1
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4548,7 +4548,7 @@ GameObject:
   - component: {fileID: 1964377332}
   m_Layer: 0
   m_Name: bas 2
-  m_TagString: Untagged
+  m_TagString: enemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

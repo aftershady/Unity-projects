@@ -19,12 +19,7 @@ public class Shooting : MonoBehaviour
             // check if ray touch something
             if (Physics.Raycast(ray, out hit, 50f))
             {
-                if(hit.transform.gameObject.name != "sol"
-                &&hit.transform.gameObject.name != "name"
-                &&hit.transform.gameObject.name != "character"
-                &&hit.transform.gameObject.name != "MainCamera"
-                &&hit.transform.gameObject.name != "name_display_bar"
-                &&hit.transform.gameObject.name != "life_bar" )
+                if(hit.transform.gameObject.tag == "enemis")
                 {
                     Destroy(hit.transform.gameObject);
                 }
