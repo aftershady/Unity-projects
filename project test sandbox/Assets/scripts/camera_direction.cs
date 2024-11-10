@@ -8,7 +8,7 @@ public class ThirdPersonCamera : MonoBehaviour
     public Transform player;
 
     // Distance of the camera from the player
-    public float distanceFromPlayer = 5f;
+    public float distanceFromPlayer = 10f;
 
     // Mouse sensitivity to adjust the rotation speed
     public float mouseSensitivity = 100f;
