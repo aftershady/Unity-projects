@@ -16,11 +16,18 @@ public class ThirdPersonCamera : MonoBehaviour
     // Variables to track the current rotation
     private float horizontalRotation = 0f;
     private float verticalRotation = 0f;
+    private GameObject NameOfPlayer;
+    private GameObject playerBody;
 
     void Start()
     {
         // Locks the cursor at the center of the screen and makes it invisible
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void Update()
+    {
+
     }
 
     void LateUpdate()

@@ -5,26 +5,43 @@ using UnityEngine;
 // The Moving class handles the movement of a GameObject based on player input.
 public class Moving : MonoBehaviour
 {
+    // Camera reference to align movement with its direction
+    public Transform cameraTransform;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Initialization code could go here if needed in the future
+        // Initialization code here if needed
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Code here would run every frame (e.g., per-frame updates)
-    }
-
-    // FixedUpdate is called at a consistent rate, making it ideal for handling physics-based movement
+    // FixedUpdate is called at a consistent rate, ideal for physics-based movement
     void FixedUpdate()
     {
-        // Moves the GameObject forward or backward based on vertical input (e.g., W/S or Up/Down keys)
-        transform.Translate(Vector3.forward * 5f * Time.fixedDeltaTime * Input.GetAxis("Vertical"));
+        // Get movement axes based on user input
+        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
 
-        // Moves the GameObject left or right based on horizontal input (e.g., A/D or Left/Right keys)
-        transform.Translate(Vector3.left * -5f * Time.fixedDeltaTime * Input.GetAxis("Horizontal"));
+        // Calculate movement direction based on camera rotation
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Remove the vertical component so movement is only horizontal
+        forward.y = 0;
+        right.y = 0;
+
+        // Normalize the vectors to avoid influencing movement speed
+        forward.Normalize();
+        right.Normalize();
+
+        if (Input.GetMouseButton(1))
+        {
+            verticalInput = 1; // Sets verticalInput to 1 to move forward
+        }
+
+        // Calculate the final movement direction
+        Vector3 moveDirection = forward * verticalInput + right * horizontalInput;
+
+        // Apply the movement
+        transform.Translate(moveDirection * 5f * Time.fixedDeltaTime, Space.World);
     }
 }
-

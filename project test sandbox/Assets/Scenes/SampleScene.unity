@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564aed0fa807ceb75b1927565123d069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 965354045}
 --- !u!136 &44924381
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3135,7 +3136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 44924384}
-  distanceFromPlayer: 5
+  distanceFromPlayer: 10
   mouseSensitivity: 100
 --- !u!1 &1269188038
 GameObject:
