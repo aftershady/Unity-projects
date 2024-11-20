@@ -25,11 +25,6 @@ public class ThirdPersonCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
-    {
-
-    }
-
     void LateUpdate()
     {
         // Get the mouse movement values
