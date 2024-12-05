@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     // Reference to the Rigidbody2D component that manages the player's physics.
     public Rigidbody2D rigidBody;
         // A private variable used to store velocity for smooth transitions (SmoothDamp).
-    public Animator animator;
     private Vector3 velocity = Vector3.zero;
 
     /*----------------------JUMPING-----------------------------------------------*/
@@ -18,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public Transform groundCheckLeft;
     public Transform groundCheckRight;
+
+    /*----------------------ANIMATION-----------------------------------------------*/
+    public Animator animator;
+
 
 
 
@@ -39,7 +42,11 @@ public class PlayerMovement : MonoBehaviour
         // Call the method to apply the calculated horizontal movement.
         MovePlayer(horizontalMovement);
 
+        /* transform x value in absolute value (* -1) */
         float characterVelocity = Mathf.Abs(rigidBody.velocity.x);
+        /* send to animator the speed of the character, setFloat send a float value to a variable
+        the move animation is active only when characterVelocity is greater than 0.3 because rigidBody
+        can make numeric noise to 0.1 or 0.2*/
         animator.SetFloat("speed", characterVelocity);
     }
 
