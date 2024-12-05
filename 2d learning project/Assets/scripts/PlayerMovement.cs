@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     /*----------------------ANIMATION-----------------------------------------------*/
     public Animator animator;
 
-
+    /*----------------------FLIP-----------------------------------------------*/
+    private float lastDirection = 1f;
+    public SpriteRenderer spriteRenderer;
 
 
     // FixedUpdate is called at a consistent time interval and is used for physics calculations.
@@ -41,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Call the method to apply the calculated horizontal movement.
         MovePlayer(horizontalMovement);
+
+        Flip(Input.GetAxisRaw("Horizontal"));
 
         /* transform x value in absolute value (* -1) */
         float characterVelocity = Mathf.Abs(rigidBody.velocity.x);
@@ -67,5 +71,21 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.AddForce(new Vector2(0f, jumpForce));
             isJumping = false;
         }
+    }
+
+    void Flip(float horizontalMovement)
+    {
+        // Update last direction only if there is horizontal input
+        if (horizontalMovement > 0)
+        {
+            lastDirection = 1f;
+        }
+        else if (horizontalMovement < 0)
+        {
+            lastDirection = -1f;
+        }
+
+        // Flip the sprite based on the last direction
+        spriteRenderer.flipX = (lastDirection < 0.1);
     }
 }
