@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     /*----------------------FLIP-----------------------------------------------*/
-    private float lastDirection = 1f;
     public SpriteRenderer spriteRenderer;
 
 
@@ -73,19 +72,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Flip(float horizontalMovement)
+    void Flip(float _velocity)
     {
-        // Update last direction only if there is horizontal input
-        if (horizontalMovement > 0)
+        if (_velocity > 0)
         {
-            lastDirection = 1f;
+            spriteRenderer.flipX = false;
         }
-        else if (horizontalMovement < 0)
+        else if (_velocity < -0.1f)
         {
-            lastDirection = -1f;
+            spriteRenderer.flipX = true;
         }
 
-        // Flip the sprite based on the last direction
-        spriteRenderer.flipX = (lastDirection < 0.1);
     }
 }
