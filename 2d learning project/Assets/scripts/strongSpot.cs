@@ -13,5 +13,5 @@ public class strongSpot : MonoBehaviour
             Player.transform.position = new Vector3(-11.162f, 1.5f, 0f);
         }
     }
-
+    
 }

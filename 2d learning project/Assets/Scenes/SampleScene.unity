@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9227537, g: 0.13243586, b: 0.13243586, a: 1}
+  m_Color: {r: 0.13518548, g: 0.92156863, b: 0.13333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -689,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567344007}
   - component: {fileID: 567344008}
+  - component: {fileID: 567344009}
   m_Layer: 5
   m_Name: healthBar
   m_TagString: Untagged
@@ -769,6 +770,50 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &567344009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567344006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95efb28ee6c2d2adcb274b954f7d4da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 567344008}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.9206923, g: 0.13289705, b: 0.13289705, a: 1}
+    key1: {r: 0.9937514, g: 0.83830273, b: 0, a: 1}
+    key2: {r: 0.21844797, g: 0.82889974, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 16865
+    ctime1: 34181
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  fill: {fileID: 23177688}
 --- !u!1 &609640577
 GameObject:
   m_ObjectHideFlags: 0
@@ -12266,6 +12311,7 @@ GameObject:
   - component: {fileID: 1732019654}
   - component: {fileID: 1732019659}
   - component: {fileID: 1732019660}
+  - component: {fileID: 1732019661}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -12491,6 +12537,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1732019661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732019653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4561fad0c6aab2aa8a4fa775a1de319f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 567344009}
+  Player: {fileID: 1732019653}
 --- !u!1 &1917625533
 GameObject:
   m_ObjectHideFlags: 0
