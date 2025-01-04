@@ -306,7 +306,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.039292097, y: 0.000040769577}
+  m_Offset: {x: 0.050946712, y: 0.000040769577}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -317,7 +317,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27275944, y: 0.09713268}
+  m_Size: {x: 0.19115019, y: 0.09713268}
   m_EdgeRadius: 0
 --- !u!1 &208335401
 GameObject:
@@ -1381,9 +1381,8 @@ GameObject:
   - component: {fileID: 1342008494}
   - component: {fileID: 1342008493}
   - component: {fileID: 1342008492}
-  - component: {fileID: 1342008491}
   - component: {fileID: 1342008495}
-  - component: {fileID: 1342008496}
+  - component: {fileID: 1342008497}
   m_Layer: 0
   m_Name: graphics
   m_TagString: Untagged
@@ -1391,23 +1390,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1342008491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342008490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059a75dfdd4de6e35b2dfc7756a3f593, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  wayPoints:
-  - {fileID: 1975868579}
-  - {fileID: 1917625534}
-  graphics: {fileID: 1342008493}
 --- !u!61 &1342008492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1437,10 +1419,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0039743185, y: -0.29544842}
+  m_Offset: {x: -0.0040467978, y: -0.29544842}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1451,7 +1433,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.51733565, y: 0.40910316}
+  m_Size: {x: 0.53010964, y: 0.40910316}
   m_EdgeRadius: 0
 --- !u!212 &1342008493
 SpriteRenderer:
@@ -1542,7 +1524,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1342008496
+--- !u!114 &1342008497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1551,10 +1533,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1342008490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e04ae347a9a79c4b2ac79e69ad11b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 059a75dfdd4de6e35b2dfc7756a3f593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1732019653}
+  speed: 1.5
+  wayPoints:
+  - {fileID: 1975868579}
+  - {fileID: 1917625534}
+  damageOnCollision: 20
+  graphics: {fileID: 1342008493}
 --- !u!1 &1564212351
 GameObject:
   m_ObjectHideFlags: 0
@@ -12551,6 +12538,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  graphics: {fileID: 1732019657}
+  isInvicible: 0
+  invincibilityFlashDelay: 0.15
+  invicibilityAfterHit: 1.5
   healthBar: {fileID: 567344009}
   Player: {fileID: 1732019653}
 --- !u!1 &1917625533
