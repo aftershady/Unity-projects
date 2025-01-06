@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rigidBody;
         // A private variable used to store velocity for smooth transitions (SmoothDamp).
     private Vector3 velocity = Vector3.zero;
-
+    private float horizontalMovement;
     /*----------------------JUMPING-----------------------------------------------*/
     public bool isGrounded;
     public bool isJumping = false;
@@ -24,24 +24,19 @@ public class PlayerMovement : MonoBehaviour
     /*----------------------FLIP-----------------------------------------------*/
     public SpriteRenderer spriteRenderer;
 
-
-    // FixedUpdate is called at a consistent time interval and is used for physics calculations.
-    void FixedUpdate()
+    void Update()
     {
         //creat a zone between the two elements who calculate the ground, if it touch something, physics will return true to is grounded
         isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
         // Retrieve horizontal input (-1 for left, 1 for right, and values in between for smooth input).
         // Not the same movement as Input.Getkey condition
         // Multiply by moveSpeed and Time.deltaTime for frame rate-independent movement.
-        float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
 
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
         }
-
-        // Call the method to apply the calculated horizontal movement.
-        MovePlayer(horizontalMovement);
 
         Flip(Input.GetAxisRaw("Horizontal"));
 
@@ -51,6 +46,13 @@ public class PlayerMovement : MonoBehaviour
         the move animation is active only when characterVelocity is greater than 0.3 because rigidBody
         can make numeric noise to 0.1 or 0.2*/
         animator.SetFloat("speed", characterVelocity);
+    }
+
+    // FixedUpdate is called at a consistent time interval and is used for physics calculations.
+    void FixedUpdate()
+    {
+        // Call the method to apply the calculated horizontal movement.
+        MovePlayer(horizontalMovement);
     }
 
     // Method to handle player movement based on horizontal input.
