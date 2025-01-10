@@ -15,8 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public bool isJumping = false;
     public float jumpForce;
-    public Transform groundCheckLeft;
-    public Transform groundCheckRight;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask collisionLayer;
+
 
     /*----------------------ANIMATION-----------------------------------------------*/
     public Animator animator;
@@ -26,8 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //creat a zone between the two elements who calculate the ground, if it touch something, physics will return true to is grounded
-        isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
+        //create a circle zone who will check if the character is at the ground
+        //(position of the circle, size of the circle, layer of collision to make exception for the player collider
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayer);
         // Retrieve horizontal input (-1 for left, 1 for right, and values in between for smooth input).
         // Not the same movement as Input.Getkey condition
         // Multiply by moveSpeed and Time.deltaTime for frame rate-independent movement.
@@ -67,6 +70,10 @@ public class PlayerMovement : MonoBehaviour
         // The ref keyword allows SmoothDamp to modify the velocity variable.
         rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
 
+        //create a circle zone who will check if the character is at the ground
+        //(position of the circle, size of the circle, layer of collision to make exception for the player collider
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayer);
+
         if(isJumping == true && isGrounded == true)
         {
             rigidBody.AddForce(new Vector2(0f, jumpForce));
@@ -85,5 +92,12 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = true;
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        //add a gizmos to see the overlapcircle on the scene
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
