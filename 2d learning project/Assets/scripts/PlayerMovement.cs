@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         // Multiply by moveSpeed and Time.deltaTime for frame rate-independent movement.
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             isJumping = true;
         }
