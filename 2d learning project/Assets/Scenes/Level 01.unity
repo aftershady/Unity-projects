@@ -1539,7 +1539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19ac8b6ec099d8ed98fd9eb61b12e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1732019653}
 --- !u!61 &1035883837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2180,6 +2179,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3561560695879089412, guid: df5c63acbe10aa65f84b7cfaf8c5d4f1, type: 3}
   m_PrefabInstance: {fileID: 626798131}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1490288498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490288500}
+  - component: {fileID: 1490288499}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490288499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490288498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0e3492d8186ad4b8a5de4dc5ea6c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 519420028}
+  - {fileID: 1732019653}
+  - {fileID: 1629185672}
+  - {fileID: 953009971}
+  - {fileID: 600856222}
+  - {fileID: 1490288498}
+--- !u!4 &1490288500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490288498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.29, y: 2.29, z: 0.007651374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497220237
 GameObject:
   m_ObjectHideFlags: 0
@@ -12533,6 +12583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbae7a9a67685630b8386a1559e77674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Level 02
 --- !u!61 &1573055521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12639,8 +12690,8 @@ Transform:
   m_GameObject: {fileID: 1573055519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.33, y: 1.54, z: 0}
-  m_LocalScale: {x: 0.9652, y: 1.0879, z: 1}
+  m_LocalPosition: {x: 40.33, y: 1.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -18567,3 +18618,4 @@ SceneRoots:
   - {fileID: 1497220238}
   - {fileID: 998829843}
   - {fileID: 1573055523}
+  - {fileID: 1490288500}
