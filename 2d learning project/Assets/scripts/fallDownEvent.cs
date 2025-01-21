@@ -1,14 +1,29 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class fallDownEvent : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D colision)
+    private Transform playerSpawn;
+    private Animator fadeSystem;
+    private void Awake()
     {
-        if (colision.CompareTag("Player"))
+        playerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
+        fadeSystem = GameObject.FindGameObjectWithTag("FadeSystem").GetComponent<Animator>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            // Retourner le joueur à la position de départ
-            colision.transform.position = new Vector3(-11.162f, 1.5f, 0f);
+            StartCoroutine(ReplacePlayer(collision));
         }
+    }
+
+    private IEnumerator ReplacePlayer(Collider2D collision)
+    {
+        fadeSystem.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1f);
+        // player return to the start position
+        collision.transform.position = playerSpawn.position;
     }
 }
