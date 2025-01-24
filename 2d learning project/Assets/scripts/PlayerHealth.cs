@@ -27,8 +27,15 @@ public class PlayerHealth : MonoBehaviour
     //reference to player
     public GameObject Player;
     /*******************************************************************************/
+    private Transform playerSpawn;
+    private Animator fadeSystem;
 
 
+    private void Awake()
+    {
+        playerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
+        fadeSystem = GameObject.FindGameObjectWithTag("FadeSystem").GetComponent<Animator>();
+    }
     void Start()
     {
         //set the cursor value and the variable max value frome slider to 100
@@ -48,11 +55,8 @@ public class PlayerHealth : MonoBehaviour
         //if the life reach 0
         if(currentHealth <= 0)
         {
-            //set the position of the player to the base position
-            Player.transform.position = new Vector3(-11.162f, 1.5f, 0f);
-            //set the cursor value and the variable max value frome slider to 100
             currentHealth = maxHealth;
-            healthBar.SetMaxHealth(maxHealth);
+            StartCoroutine(ReplacePlayer(gameObject));
         }
     }
 
@@ -88,5 +92,14 @@ public class PlayerHealth : MonoBehaviour
         //handle the duration of invicibility
         yield return new WaitForSeconds(invicibilityAfterHit);
         isInvicible = false;
+    }
+
+    private IEnumerator ReplacePlayer(GameObject player)
+    {
+        fadeSystem.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1f);
+        // player return to the start position
+        player.transform.position = playerSpawn.position;
+        healthBar.SetMaxHealth(maxHealth);
     }
 }
