@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask collisionLayer;
 
-
+    public bool isClimbing;
+    private float verticalMovement;
     /*----------------------ANIMATION-----------------------------------------------*/
     public Animator animator;
 
@@ -35,8 +36,9 @@ public class PlayerMovement : MonoBehaviour
         // Not the same movement as Input.Getkey condition
         // Multiply by moveSpeed and Time.deltaTime for frame rate-independent movement.
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             isJumping = true;
         }
@@ -55,29 +57,39 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Call the method to apply the calculated horizontal movement.
-        MovePlayer(horizontalMovement);
+        MovePlayer(horizontalMovement, verticalMovement);
     }
 
     // Method to handle player movement based on horizontal input.
-    void MovePlayer(float _horizontalMovement)
+    void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
-        // Create a target velocity combining horizontal movement and the current vertical velocity.
-        //assign vector 2 to vector 3 to ingore Z Axis and can apply SmoothDamp vector3 static method
-        //for Y axis, we use the rigid body gravity of the y axis.
-        Vector3 targetVelocity = new Vector2(_horizontalMovement, rigidBody.velocity.y);
-
-        // Smoothly adjust the player's velocity toward the target velocity over time.
-        // The ref keyword allows SmoothDamp to modify the velocity variable.
-        rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
-
-        //create a circle zone who will check if the character is at the ground
-        //(position of the circle, size of the circle, layer of collision to make exception for the player collider
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayer);
-
-        if(isJumping == true && isGrounded == true)
+        if(!isClimbing)
         {
-            rigidBody.AddForce(new Vector2(0f, jumpForce));
-            isJumping = false;
+            // Create a target velocity combining horizontal movement and the current vertical velocity.
+            //assign vector 2 to vector 3 to ingore Z Axis and can apply SmoothDamp vector3 static method
+            //for Y axis, we use the rigid body gravity of the y axis.
+            Vector3 targetVelocity = new Vector2(_horizontalMovement, rigidBody.velocity.y);
+
+            // Smoothly adjust the player's velocity toward the target velocity over time.
+            // The ref keyword allows SmoothDamp to modify the velocity variable.
+            rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
+
+            //create a circle zone who will check if the character is at the ground
+            //(position of the circle, size of the circle, layer of collision to make exception for the player collider
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayer);
+
+            if(isJumping)
+            {
+                rigidBody.AddForce(new Vector2(0f, jumpForce));
+                isJumping = false;
+            }
+        }
+        else
+        {
+            Vector3 targetVelocity = new Vector2(rigidBody.velocity.x, _verticalMovement);
+            // Smoothly adjust the player's velocity toward the target velocity over time.
+            // The ref keyword allows SmoothDamp to modify the velocity variable.
+            rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
         }
     }
 
