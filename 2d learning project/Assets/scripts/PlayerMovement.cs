@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isClimbing;
     private float verticalMovement;
+    public float climbSpeed;
     /*----------------------ANIMATION-----------------------------------------------*/
     public Animator animator;
 
@@ -36,9 +37,9 @@ public class PlayerMovement : MonoBehaviour
         // Not the same movement as Input.Getkey condition
         // Multiply by moveSpeed and Time.deltaTime for frame rate-independent movement.
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             isJumping = true;
         }

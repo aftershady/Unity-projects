@@ -4,6 +4,7 @@ public class Lader : MonoBehaviour
 {
     public bool isInRange;
     private PlayerMovement playerMovement;
+    public BoxCollider2D collider;
 
     void Awake()
     {
@@ -12,9 +13,10 @@ public class Lader : MonoBehaviour
 
     void Update()
     {
-        if(isInRange && Input.GetKeyDown(KeyCode.E))
+        if(isInRange && Input.GetKeyDown(KeyCode.UpArrow))
         {
             playerMovement.isClimbing = true;
+            collider.isTrigger = true;
         }
     }
 
@@ -32,6 +34,8 @@ public class Lader : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = false;
+            playerMovement.isClimbing = false;
+            collider.isTrigger = false;
         }
     }
 }
