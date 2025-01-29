@@ -13,6 +13,14 @@ public class Lader : MonoBehaviour
 
     void Update()
     {
+        if(playerMovement.isClimbing && playerMovement.isGrounded && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow)
+        || Input.GetKeyDown(KeyCode.RightArrow)))
+        {
+            playerMovement.isClimbing = false;
+            collider.isTrigger = false;
+            return;
+        }
+
         if(isInRange && Input.GetKeyDown(KeyCode.UpArrow))
         {
             playerMovement.isClimbing = true;

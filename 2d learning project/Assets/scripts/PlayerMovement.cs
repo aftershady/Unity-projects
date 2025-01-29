@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Vector3 targetVelocity = new Vector2(rigidBody.velocity.x, _verticalMovement);
+            Vector3 targetVelocity = new Vector2(0, _verticalMovement);
             // Smoothly adjust the player's velocity toward the target velocity over time.
             // The ref keyword allows SmoothDamp to modify the velocity variable.
             rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
