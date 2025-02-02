@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
         // A private variable used to store velocity for smooth transitions (SmoothDamp).
     private Vector3 velocity = Vector3.zero;
     private float horizontalMovement;
+
     /*----------------------JUMPING-----------------------------------------------*/
     public bool isGrounded;
     public bool isJumping = false;
@@ -19,9 +20,11 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask collisionLayer;
 
+    /*----------------------CLIMBING-----------------------------------------------*/
     public bool isClimbing;
     private float verticalMovement;
     public float climbSpeed;
+
     /*----------------------ANIMATION-----------------------------------------------*/
     public Animator animator;
 
@@ -39,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             isJumping = true;
         }
@@ -52,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         the move animation is active only when characterVelocity is greater than 0.3 because rigidBody
         can make numeric noise to 0.1 or 0.2*/
         animator.SetFloat("speed", characterVelocity);
+        animator.SetBool("isClimbing", isClimbing);
     }
 
     // FixedUpdate is called at a consistent time interval and is used for physics calculations.
@@ -91,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             // Smoothly adjust the player's velocity toward the target velocity over time.
             // The ref keyword allows SmoothDamp to modify the velocity variable.
             rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
+            isJumping = false;
         }
     }
 

@@ -7,6 +7,7 @@ TagManager:
   - playerGroundCheck
   - FadeSystem
   - PlayerSpawn
+  - ladderText
   layers:
   - Default
   - TransparentFX
