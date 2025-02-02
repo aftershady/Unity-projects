@@ -29,13 +29,22 @@ public class PlayerHealth : MonoBehaviour
     /*******************************************************************************/
     private Transform playerSpawn;
     private Animator fadeSystem;
+    /*******************************************************************************/
+    public static PlayerHealth instance;
 
 
     private void Awake()
     {
+        if(instance != null)
+        {
+            Debug.LogWarning("there is more than one instance PlayerHealth");
+        }
+        instance = this;
+
         playerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
         fadeSystem = GameObject.FindGameObjectWithTag("FadeSystem").GetComponent<Animator>();
     }
+
     void Start()
     {
         //set the cursor value and the variable max value frome slider to 100
@@ -73,6 +82,19 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(InvicibilityFlash());
             StartCoroutine(handleInvincibilityDelay());
         }
+    }
+
+    public void HealPlayer(int healthPoints)
+    {
+        if (currentHealth + healthPoints > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += healthPoints;
+        }
+        healthBar.SetHealth(currentHealth);
     }
 
     public IEnumerator InvicibilityFlash()
