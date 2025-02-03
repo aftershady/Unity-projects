@@ -5,14 +5,8 @@ using UnityEngine;
 public class HealPowerUp : MonoBehaviour
 {
     public int healthPoints;
-    private PlayerHealth playerHealth;
 
-    void Awake()
-    {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-    }
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {

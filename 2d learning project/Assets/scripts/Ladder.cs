@@ -5,7 +5,7 @@ public class Lader : MonoBehaviour
     public bool isInRange;
     private PlayerMovement playerMovement;
     public BoxCollider2D topCollider;
-    public GameObject ladderText;
+    private GameObject ladderText;
 
     void Awake()
     {
@@ -56,7 +56,7 @@ public class Lader : MonoBehaviour
             isInRange = false;
             playerMovement.isClimbing = false;
             topCollider.isTrigger = false;
-            
+
             foreach (Transform child in ladderText.transform)
             {
                 child.gameObject.SetActive(false);
