@@ -58,14 +58,7 @@ public class PlayerHealth : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.H))
         {
             //the health bar take 3 damages
-            TakeDamage(20);
-        }
-
-        //if the life reach 0
-        if(currentHealth <= 0)
-        {
-            currentHealth = maxHealth;
-            StartCoroutine(ReplacePlayer(gameObject));
+            TakeDamage(60);
         }
     }
 
@@ -78,10 +71,23 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= damage;
             //update the fill and the gradient
             healthBar.SetHealth(currentHealth);
+
+            //if the life reach 0
+            if(currentHealth <= 0)
+            {
+                Die();
+                return;
+            }
             isInvicible = true;
             StartCoroutine(InvicibilityFlash());
             StartCoroutine(handleInvincibilityDelay());
         }
+    }
+
+    public void Die()
+    {
+        PlayerMovement.instance.enabled = false;
+        PlayerMovement.instance.animator.SetTrigger("Die");
     }
 
     public void HealPlayer(int healthPoints)

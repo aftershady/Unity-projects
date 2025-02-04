@@ -30,6 +30,17 @@ public class PlayerMovement : MonoBehaviour
 
     /*----------------------FLIP-----------------------------------------------*/
     public SpriteRenderer spriteRenderer;
+    /*----------------------SINGLETON-----------------------------------------------*/
+    public static PlayerMovement instance;
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("there is more than one instance PlayerMovement");
+        }
+        instance = this;
+    }
 
     void Update()
     {
