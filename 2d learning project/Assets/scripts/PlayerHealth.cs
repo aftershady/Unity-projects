@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     //sprite renderer of player
     public SpriteRenderer graphics;
     //active when the player is hit
-    public bool isInvicible = false;
+    public bool isInvincible = false;
     //delay beteween alpha 0.0 and alpha 1.0 of player
     public float invincibilityFlashDelay = 1f;
     //duration of invicibility
@@ -65,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         //take damade only if isInvincible = false
-        if(!isInvicible)
+        if(!isInvincible)
         {
             //update the variable of health
             currentHealth -= damage;
@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
                 Die();
                 return;
             }
-            isInvicible = true;
+            isInvincible = true;
             StartCoroutine(InvicibilityFlash());
             StartCoroutine(handleInvincibilityDelay());
         }
@@ -88,6 +88,9 @@ public class PlayerHealth : MonoBehaviour
     {
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.animator.SetTrigger("Die");
+        PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Kinematic;
+        PlayerMovement.instance.playerCollider.enabled = false;
+        PlayerMovement.instance.rigidBody.velocity = Vector2.zero;
     }
 
     public void HealPlayer(int healthPoints)
@@ -105,8 +108,8 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator InvicibilityFlash()
     {
-        //while variable isInvicible is true, the graphics alpha of character altern from 0 to 1 every xf time
-        while (isInvicible)
+        //while variable isInvincible is true, the graphics alpha of character altern from 0 to 1 every xf time
+        while (isInvincible)
         {
             graphics.color = new Color(1F, 1F, 1F, 0F);
             yield return new WaitForSeconds(invincibilityFlashDelay);
@@ -119,7 +122,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //handle the duration of invicibility
         yield return new WaitForSeconds(invicibilityAfterHit);
-        isInvicible = false;
+        isInvincible = false;
     }
 
     private IEnumerator ReplacePlayer(GameObject player)

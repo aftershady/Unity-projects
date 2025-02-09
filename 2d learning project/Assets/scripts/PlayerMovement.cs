@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     /*----------------------FLIP-----------------------------------------------*/
     public SpriteRenderer spriteRenderer;
+
+    public CapsuleCollider2D playerCollider;
     /*----------------------SINGLETON-----------------------------------------------*/
     public static PlayerMovement instance;
 
