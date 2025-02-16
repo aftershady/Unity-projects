@@ -91,6 +91,18 @@ public class PlayerHealth : MonoBehaviour
         PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Kinematic;
         PlayerMovement.instance.playerCollider.enabled = false;
         PlayerMovement.instance.rigidBody.velocity = Vector2.zero;
+        GameOverManager.instance.OnPlayerDeath();
+    }
+
+        public void Respawn()
+    {
+        PlayerMovement.instance.enabled = true;
+        PlayerMovement.instance.animator.SetTrigger("Respawn");
+        PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Dynamic;
+        PlayerMovement.instance.playerCollider.enabled = true;
+        PlayerMovement.instance.rigidBody.velocity = Vector2.zero;
+        currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
     }
 
     public void HealPlayer(int healthPoints)

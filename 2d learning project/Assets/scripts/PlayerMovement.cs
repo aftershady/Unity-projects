@@ -52,8 +52,8 @@ public class PlayerMovement : MonoBehaviour
         // Retrieve horizontal input (-1 for left, 1 for right, and values in between for smooth input).
         // Not the same movement as Input.Getkey condition
         // Multiply by moveSpeed and Time.deltaTime for frame rate-independent movement.
-        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.deltaTime;
+        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime;
+        verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.fixedDeltaTime;
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
