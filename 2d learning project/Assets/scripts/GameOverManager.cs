@@ -29,6 +29,7 @@ public class GameOverManager : MonoBehaviour
     public void RetryButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Inventory.instance.ResetCoins();
         gameOverUI.SetActive(false);
         if(CurrentSceneManager.instance.isPlayerPresentByDefault == false)
         {

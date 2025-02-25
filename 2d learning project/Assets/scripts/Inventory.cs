@@ -29,4 +29,10 @@ public class Inventory : MonoBehaviour
         coinsCountText.text = coinsCount.ToString();
     }
 
+    public void ResetCoins()
+    {
+        coinsCount = 0;
+        coinsCountText.text = coinsCount.ToString();
+    }
+
 }
