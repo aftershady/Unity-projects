@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.Linq;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -13,19 +14,35 @@ public class SettingsMenu : MonoBehaviour
 
     public void Start()
     {
-        //catch resolution of user
-        resolutions = Screen.resolutions;
+        //catch resolution of user without duplications
+        resolutions = Screen.resolutions.Select(resolutionDropdown => new Resolution { width = resolutionDropdown.width, height = resolutionDropdown.height}).Distinct().ToArray();
         //clear defaut dropdown options
         resolutionDropdown.ClearOptions();
+        //list of string where resolutions will be store
         List<string> options = new List<string>();
+        //int for catching index of the resoution list when it's the playr resolution
+        int currentResolutionIndex = 0;
 
         for (int i = 0; i < resolutions.Length; i++)
         {
+            //add string of resolution in option
             string option = resolutions[i].width + "x" + resolutions[i].height;
+            //copy the string in the list of string
             options.Add(option);
+
+            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                //store the index of the resolution of the player
+                currentResolutionIndex = i;
+            }
         }
 
+        //copy the list in the dropdown menu
         resolutionDropdown.AddOptions(options);
+        //copy the value of the resolution
+        resolutionDropdown.value = currentResolutionIndex;
+        //refresh the display
+        resolutionDropdown.RefreshShownValue();
     }
     public void SetVolume(float volume)
     {
@@ -35,6 +52,12 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution =  resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
 }
