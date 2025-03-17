@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime;
         verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.fixedDeltaTime;
 
+        //************JUMPING METHOD*************
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             isJumping = true;

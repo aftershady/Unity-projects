@@ -2197,7 +2197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 732014505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1445884488}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &732014505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3649,7 +3661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1445884487
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21521,6 +21533,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3665594527587033751, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
   m_PrefabInstance: {fileID: 6654358434203037068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1732019666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732019653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60882dff7fc1c69b18a067fe25d109f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1445884486}
 --- !u!4 &1759430234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3561560695879089412, guid: df5c63acbe10aa65f84b7cfaf8c5d4f1, type: 3}
@@ -37420,6 +37445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1786769941965197658, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2086043651078509677, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
       propertyPath: m_Interpolate
       value: 2
@@ -37519,7 +37548,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1786769941965197658, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1732019666}
   m_SourcePrefab: {fileID: 100100000, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
