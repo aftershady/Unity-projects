@@ -3,18 +3,16 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-
-    void Awake()
+    public void Paused()
     {
-        Animator[] animators = FindObjectsOfType<Animator>();
+        Time.timeScale = 0;
+        gameObject.SetActive(true);
     }
+
     public void Resume()
     {
+        Time.timeScale = 1;
         gameObject.SetActive(false);
-		PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Dynamic;
-        PlayerMovement.instance.playerCollider.enabled = true;
-		PlayerMovement.instance.enabled = true;
-		PlayerMovement.instance.animator.speed = 1;
     }
 
 	public void ReturnToMainMenu()
@@ -22,7 +20,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-        public void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
