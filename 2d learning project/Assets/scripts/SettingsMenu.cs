@@ -7,7 +7,6 @@ using System.Linq;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-
     Resolution[] resolutions;
     public Dropdown resolutionDropdown;
 
@@ -44,9 +43,13 @@ public class SettingsMenu : MonoBehaviour
         //refresh the display
         resolutionDropdown.RefreshShownValue();
     }
-    public void SetVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixer.SetFloat("Music", volume);
+    }
+    public void SetSoundVolume(float volume)
+    {
+        audioMixer.SetFloat("Sound", volume);
     }
 
     public void SetFullScreen(bool isFullScreen)

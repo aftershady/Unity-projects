@@ -28,5 +28,9 @@ public class fallDownEvent : MonoBehaviour
         collision.transform.position = playerSpawn.position;
         PlayerMovement.instance.rigidBody.velocity = Vector2.zero;
         PlayerMovement.instance.enabled = true;
+        if (PlayerHealth.instance.currentHealth - 20 > 0 )
+        {
+            PlayerHealth.instance.TakeDamage(20);
+        }
     }
 }
