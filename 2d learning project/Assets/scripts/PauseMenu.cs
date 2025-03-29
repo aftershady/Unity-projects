@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip openMenuSound;
+    public AudioClip closeMenuSound;
     public GameObject SettingsWindow;
 
     public void Paused()
@@ -19,6 +22,16 @@ public class PauseMenu : MonoBehaviour
     public void SettingsButton()
     {
         SettingsWindow.SetActive(true);
+    }
+
+    public void OpenMenuSound()
+    {
+        audioSource.PlayOneShot(openMenuSound);
+    }
+
+    public void CloseMenuSound()
+    {
+        audioSource.PlayOneShot(closeMenuSound);
     }
 
     public void CloseSettingsButton()

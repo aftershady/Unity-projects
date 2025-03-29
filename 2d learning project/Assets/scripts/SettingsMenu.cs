@@ -47,6 +47,7 @@ public class SettingsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("Music", volume);
     }
+
     public void SetSoundVolume(float volume)
     {
         audioMixer.SetFloat("Sound", volume);
