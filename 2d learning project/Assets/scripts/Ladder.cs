@@ -1,11 +1,16 @@
 using UnityEngine;
-
+using System.Collections;
 public class Lader : MonoBehaviour
 {
     public bool isInRange;
     private PlayerMovement playerMovement;
     public BoxCollider2D topCollider;
     private GameObject ladderText;
+
+    public AudioSource audioSource;
+    public AudioClip ladderSound;
+
+    private bool soundIsPlaying;
 
     void Awake()
     {
@@ -31,8 +36,23 @@ public class Lader : MonoBehaviour
             {
                 child.gameObject.SetActive(false);
             }
-
         }
+
+        if(playerMovement.isClimbing && !soundIsPlaying)
+        {
+            soundIsPlaying = true;
+            StartCoroutine(ClimbSound(ladderSound));
+        }
+    }
+
+    public IEnumerator ClimbSound(AudioClip LadderSound)
+    {
+        while(playerMovement.isClimbing == true)
+        {
+            audioSource.PlayOneShot(LadderSound);
+            yield return new WaitForSeconds(0.3f);
+        }
+        soundIsPlaying = false;
     }
 
 

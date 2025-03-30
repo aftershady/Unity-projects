@@ -32,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public CapsuleCollider2D playerCollider;
+
+    /*----------------------SOUND EFFECT-----------------------------------------------*/
+    public AudioSource audioSource;
+    public AudioClip jumpingSound;
     /*----------------------SINGLETON-----------------------------------------------*/
     public static PlayerMovement instance;
 
@@ -101,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rigidBody.AddForce(new Vector2(0f, jumpForce));
                 isJumping = false;
+                audioSource.PlayOneShot(jumpingSound);
             }
         }
         else
