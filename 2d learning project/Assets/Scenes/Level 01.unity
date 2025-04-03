@@ -1209,6 +1209,7 @@ MonoBehaviour:
   playlist:
   - {fileID: 8300000, guid: 4c67d41fa9e7f023fb1c5b54a9d86ddf, type: 3}
   - {fileID: 8300000, guid: 11402746f80d0c066b44705bc737e947, type: 3}
+  - {fileID: 8300000, guid: a510347c9044895c3b4e806d57845074, type: 3}
   audioSource: {fileID: 421694516}
 --- !u!82 &421694516
 AudioSource:
@@ -38374,7 +38375,7 @@ PrefabInstance:
     - target: {fileID: 5407352727560566405, guid: 7558e58721fff795aac660ec7311557d, type: 3}
       propertyPath: ladderSound
       value: 
-      objectReference: {fileID: 8300000, guid: 3efce39628ee59ca4913df8ffc249d33, type: 3}
+      objectReference: {fileID: 8300000, guid: b345b70038c8da89d82ee3533ea3b276, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38465,6 +38466,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1732019672}
+    - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
       propertyPath: isInvicible
       value: 0
       objectReference: {fileID: 0}
@@ -38472,6 +38477,26 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 85e563ebf3c7831c2bbacd6fde24b8bc, type: 3}
+    - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: playerDieSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7a79961724d34008a324fd0ca2c7d97, type: 3}
+    - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: playerHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: caeef53eee01b4e4a8d145dad0fdfaa0, type: 3}
+    - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: playerHealSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f776333565233fbe39b13b256532f70f, type: 3}
+    - target: {fileID: 4098414927457396408, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+      propertyPath: playerRespawnSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c25e37478b0fc2f26aa3a54fde213d3c, type: 3}
     - target: {fileID: 5743849483400226827, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
       propertyPath: m_Direction
       value: 0

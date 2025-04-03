@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -30,6 +31,14 @@ public class PlayerHealth : MonoBehaviour
     private Transform playerSpawn;
     private Animator fadeSystem;
     /*******************************************************************************/
+    public AudioSource audioSource;
+    public AudioClip playerHitSound;
+    public AudioClip playerDieSound;
+    public AudioClip gameOverSound;
+    public AudioClip playerRespawnSound;
+    public AudioClip playerHealSound;
+    /*******************************************************************************/
+
     public static PlayerHealth instance;
 
 
@@ -50,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
         //set the cursor value and the variable max value frome slider to 100
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        audioSource.PlayOneShot(playerRespawnSound);
     }
 
     void Update()
@@ -75,9 +85,11 @@ public class PlayerHealth : MonoBehaviour
             //if the life reach 0
             if(currentHealth <= 0)
             {
+                audioSource.PlayOneShot(playerDieSound);
                 Die();
                 return;
             }
+            audioSource.PlayOneShot(playerHitSound);
             isInvincible = true;
             StartCoroutine(InvicibilityFlash());
             StartCoroutine(handleInvincibilityDelay());
@@ -87,6 +99,8 @@ public class PlayerHealth : MonoBehaviour
     public void Die()
     {
         PlayerMovement.instance.enabled = false;
+        AudioManager.instance.audioSource.clip = null;
+        audioSource.PlayOneShot(gameOverSound);
         PlayerMovement.instance.animator.SetTrigger("Die");
         PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Kinematic;
         PlayerMovement.instance.playerCollider.enabled = false;
@@ -97,6 +111,7 @@ public class PlayerHealth : MonoBehaviour
         public void Respawn()
     {
         PlayerMovement.instance.enabled = true;
+        audioSource.PlayOneShot(playerRespawnSound);
         PlayerMovement.instance.animator.SetTrigger("Respawn");
         PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Dynamic;
         PlayerMovement.instance.playerCollider.enabled = true;
@@ -107,6 +122,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void HealPlayer(int healthPoints)
     {
+        audioSource.PlayOneShot(playerHealSound);
         if (currentHealth + healthPoints > maxHealth)
         {
             currentHealth = maxHealth;

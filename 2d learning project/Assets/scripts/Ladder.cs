@@ -38,18 +38,36 @@ public class Lader : MonoBehaviour
             }
         }
 
+        if (playerMovement.isClimbing )
+        {
+            playerMovement.rigidBody.gravityScale = 0f;
+        }
+
         if(playerMovement.isClimbing && !soundIsPlaying)
         {
             soundIsPlaying = true;
             StartCoroutine(ClimbSound(ladderSound));
         }
+
+        if(isInRange && playerMovement.isClimbing  && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+        {
+            playerMovement.animator.speed = 0f;
+        }
+        else
+        {
+            playerMovement.animator.speed = 1f;
+        }
+
     }
 
     public IEnumerator ClimbSound(AudioClip LadderSound)
     {
         while(playerMovement.isClimbing == true)
         {
-            audioSource.PlayOneShot(LadderSound);
+            if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            {
+                audioSource.PlayOneShot(LadderSound);
+            }
             yield return new WaitForSeconds(0.3f);
         }
         soundIsPlaying = false;
@@ -73,6 +91,7 @@ public class Lader : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            playerMovement.rigidBody.gravityScale = 1f;
             isInRange = false;
             playerMovement.isClimbing = false;
             topCollider.isTrigger = false;
