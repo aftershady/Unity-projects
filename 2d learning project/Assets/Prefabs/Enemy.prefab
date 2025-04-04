@@ -333,7 +333,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09689462, y: -0.017984629}
+  m_Offset: {x: 0.10181546, y: -0.017984629}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -344,7 +344,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31690764, y: 0.07144928}
+  m_Size: {x: 0.39683962, y: 0.07144928}
   m_EdgeRadius: 0
 --- !u!114 &1096313573780340306
 MonoBehaviour:
@@ -359,3 +359,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToDestroy: {fileID: 1510363678263740015}
+  enemyHitSound: {fileID: 8300000, guid: e35d2682ab943806680c9254436f63e1, type: 3}

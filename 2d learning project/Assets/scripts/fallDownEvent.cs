@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class fallDownEvent : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip fallSound;
     private Transform playerSpawn;
     private Animator fadeSystem;
     private void Awake()
@@ -20,7 +22,7 @@ public class fallDownEvent : MonoBehaviour
 
     private IEnumerator ReplacePlayer(Collider2D collision)
     {
-
+        audioSource.PlayOneShot(fallSound);
         PlayerMovement.instance.enabled = false;
         fadeSystem.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);

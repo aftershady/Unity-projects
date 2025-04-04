@@ -8,6 +8,7 @@ TagManager:
   - FadeSystem
   - PlayerSpawn
   - ladderText
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

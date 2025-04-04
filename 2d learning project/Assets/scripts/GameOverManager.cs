@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    public Transform checkPoint;
     public GameObject gameOverUI;
     public static GameOverManager instance;
 
@@ -28,12 +29,23 @@ public class GameOverManager : MonoBehaviour
 
     public void RetryButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if(CurrentSceneManager.instance.isPlayerHaveTakenTheCheckpoint)
+        {
+            checkPoint = GameObject.FindGameObjectWithTag("CheckPoint").transform;
+            PlayerHealth.instance.transform.position = checkPoint.position;
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         Inventory.instance.ResetCoins();
         gameOverUI.SetActive(false);
         if(CurrentSceneManager.instance.isPlayerPresentByDefault == false)
         {
             PlayerHealth.instance.Respawn();
+            AudioManager.instance.audioSource.clip = AudioManager.instance.playlist[0];
         }
     }
 

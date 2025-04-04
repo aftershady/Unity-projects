@@ -53,10 +53,11 @@ public class Lader : MonoBehaviour
         {
             playerMovement.animator.speed = 0f;
         }
-        else
+        else if(isInRange && playerMovement.isClimbing && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
         {
             playerMovement.animator.speed = 1f;
         }
+
 
     }
 
@@ -68,9 +69,8 @@ public class Lader : MonoBehaviour
             {
                 audioSource.PlayOneShot(LadderSound);
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.25f);
         }
-        soundIsPlaying = false;
     }
 
 
@@ -95,11 +95,13 @@ public class Lader : MonoBehaviour
             isInRange = false;
             playerMovement.isClimbing = false;
             topCollider.isTrigger = false;
+            soundIsPlaying = false;
 
             foreach (Transform child in ladderText.transform)
             {
                 child.gameObject.SetActive(false);
             }
+            playerMovement.animator.speed = 1f;
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class LoadSpecificScene : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip doorSound;
     public string sceneName;
     public Animator fadeSystem;
 
@@ -25,6 +27,7 @@ public class LoadSpecificScene : MonoBehaviour
 
     public IEnumerator loadNextScene(Collider2D collision)
     {
+        audioSource.PlayOneShot(doorSound);
         fadeSystem.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);
         collision.GetComponent<PlayerMovement>().enabled = true;

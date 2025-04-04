@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip checkpointSound;
     private Transform playerSpawn;
 
         private void Awake()
@@ -14,8 +16,10 @@ public class CheckPoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            audioSource.PlayOneShot(checkpointSound);
             playerSpawn.position = transform.position;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            CurrentSceneManager.instance.isPlayerHaveTakenTheCheckpoint = true;
         }
     }
 }
