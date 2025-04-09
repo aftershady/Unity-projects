@@ -99,7 +99,7 @@ public class PlayerHealth : MonoBehaviour
     public void Die()
     {
         PlayerMovement.instance.enabled = false;
-        AudioManager.instance.audioSource.clip = null;
+        AudioManager.instance.audioSource.Stop();
         audioSource.PlayOneShot(gameOverSound);
         PlayerMovement.instance.animator.SetTrigger("Die");
         PlayerMovement.instance.rigidBody.bodyType = RigidbodyType2D.Kinematic;

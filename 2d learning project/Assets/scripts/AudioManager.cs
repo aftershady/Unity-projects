@@ -1,14 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
+    public bool victorySoundIsPlayed = false;
+    public bool coroutineStarted = false;
+    public bool bossIsDead = false;
     public AudioMixerGroup SoundEffectsMixer;
     public AudioClip[] playlist;
     public AudioSource audioSource;
     // Start is called before the first frame update
     public static AudioManager instance;
+
+    public AudioClip openBossDoorSound;
 
     private void Awake()
     {
@@ -27,14 +33,31 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!audioSource.isPlaying)
+        if(PlayerHealth.instance.currentHealth > 0 && !audioSource.isPlaying)
         {
             audioSource.Play();
         }
-        if (SceneManager.GetActiveScene().name == "Level 03")
+        if (SceneManager.GetActiveScene().name == "Level 03" && !bossIsDead)
         {
             audioSource.clip = playlist[1];
         }
+        if (SceneManager.GetActiveScene().name == "Level 03" && bossIsDead && coroutineStarted == false)
+        {
+            coroutineStarted = true;
+            StartCoroutine(PlayVictorySound());
+        }
+    }
+
+    private IEnumerator PlayVictorySound()
+    {
+        if(!victorySoundIsPlayed)
+        {
+            victorySoundIsPlayed = true;
+            audioSource.clip = playlist[2];
+            yield return new WaitForSeconds(playlist[2].length);
+            audioSource.PlayOneShot(openBossDoorSound);
+        }
+        audioSource.clip = playlist[3];
     }
 
     public AudioSource PlayClipAt(AudioClip clip, Vector3 pos)

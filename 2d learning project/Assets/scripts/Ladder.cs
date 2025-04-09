@@ -43,7 +43,7 @@ public class Lader : MonoBehaviour
             playerMovement.rigidBody.gravityScale = 0f;
         }
 
-        if(playerMovement.isClimbing && !soundIsPlaying)
+        if (isInRange && playerMovement.isClimbing && !soundIsPlaying)
         {
             soundIsPlaying = true;
             StartCoroutine(ClimbSound(ladderSound));

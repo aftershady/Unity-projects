@@ -42,10 +42,15 @@ public class GameOverManager : MonoBehaviour
 
         Inventory.instance.ResetCoins();
         gameOverUI.SetActive(false);
-        if(CurrentSceneManager.instance.isPlayerPresentByDefault == false)
+        if(CurrentSceneManager.instance.isPlayerPresentByDefault == false && SceneManager.GetActiveScene().name != "Level 03")
         {
             PlayerHealth.instance.Respawn();
             AudioManager.instance.audioSource.clip = AudioManager.instance.playlist[0];
+        }
+        else if (CurrentSceneManager.instance.isPlayerPresentByDefault == false && SceneManager.GetActiveScene().name == "Level 03")
+        {
+            PlayerHealth.instance.Respawn();
+            AudioManager.instance.audioSource.clip = AudioManager.instance.playlist[1];
         }
     }
 
