@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 782077915}
   - component: {fileID: 782077917}
   - component: {fileID: 782077918}
+  - component: {fileID: 782077919}
   m_Layer: 7
   m_Name: graphics
   m_TagString: Untagged
@@ -689,6 +690,7 @@ MonoBehaviour:
   rb: {fileID: 782077918}
   damageOnCollision: 20
   graphics: {fileID: 782077916}
+  animator: {fileID: 782077919}
 --- !u!212 &782077916
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -813,6 +815,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &782077919
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782077912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51b98a2471ad98e0db88e5f25880a78e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &845388431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1688,7 @@ GameObject:
   - component: {fileID: 1922335753}
   - component: {fileID: 1922335754}
   - component: {fileID: 1922335755}
+  - component: {fileID: 1922335756}
   m_Layer: 7
   m_Name: WeakSpot
   m_TagString: Untagged
@@ -1777,6 +1801,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2647006, y: 0.059640646}
   m_EdgeRadius: 0
+--- !u!114 &1922335756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922335752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86f3fedef519368fae5a54c7d2565da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossHitSound: {fileID: 0}
+  objectToDestroy: {fileID: 1188253890}
+  bossIsHit: 0
 --- !u!1 &2024415652
 GameObject:
   m_ObjectHideFlags: 0

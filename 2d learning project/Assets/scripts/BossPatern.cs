@@ -27,6 +27,8 @@ public class BossPatern : MonoBehaviour
     public SpriteRenderer graphics;
     // store SpriteRenderer in a variable for flip
     private bool isJumping = false;
+    private bool jumpingAnimation = false;
+    public Animator animator;
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class BossPatern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("jumpingAnimation", jumpingAnimation);
         Vector3 dir = target.position - transform.position;
         //position of enemy = move with position of enemy has init, target.position has target, speed * fps for the delay
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -55,6 +58,7 @@ public class BossPatern : MonoBehaviour
             if (!isJumping)
             {
                 isJumping = true;
+                jumpingAnimation = true;
                 StartCoroutine(Jump());
             }
             if (destPoint == 0)
@@ -66,6 +70,15 @@ public class BossPatern : MonoBehaviour
                 graphics.flipX = true;
             }
         }
+
+        if (PlayerHealth.instance.isInvincible)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), true);
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), false);
+        }
     }
 
     private IEnumerator Jump()
@@ -76,21 +89,22 @@ public class BossPatern : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         // Reset the Rigidbody2D's velocity to zero
         rb.velocity = Vector2.zero;
+        jumpingAnimation = false;
         yield return new WaitForSeconds(Random.Range(0.5f, 5f));
         isJumping = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("Player"))
+        // if the enemy touch the player
+        if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
-            // give damage to player
-            playerHealth.TakeDamage(damageOnCollision);
-            // Ignore collision between the player and the boss while the player is invincible
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>(), true);
+            // give damage to the player
+            PlayerHealth.instance.TakeDamage(damageOnCollision);
         }
     }
+
+
 }
 
 

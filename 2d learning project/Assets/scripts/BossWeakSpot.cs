@@ -3,13 +3,19 @@ using UnityEngine;
 
 public class BossWeakSpot : MonoBehaviour
 {
-    public GameObject ObjectToDestroy;
     public AudioClip BossHitSound;
-    private void OnTriggerEnter2D(Collider2D colision)
+    public GameObject objectToDestroy;
+    public int bossIsHit = 0;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(colision.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {
-            AudioManager.instance.PlayClipAt(BossHitSound, transform.position);
+            Debug.Log("Boss Weak Spot Hit");
+            bossIsHit++;
+            if(bossIsHit >= 3)
+            {
+                Destroy(objectToDestroy);
+            }
         }
     }
 }
