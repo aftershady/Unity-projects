@@ -5,41 +5,38 @@ using UnityEngine;
 
 public class OnBossDeath : MonoBehaviour
 {
-    public GameObject boss;
-    public bool isBossDead = false;
-    public bool isPlayerDead = false;
+    public static OnBossDeath instance;
 
-    void Update()
+    private void Awake()
     {
-        if (PlayerHealth.instance.currentHealth <= 0)
+        if(instance != null)
         {
-            isPlayerDead = true;
+            Debug.LogWarning("there is more than one instance OnBossDeath");
         }
-
-        if (boss == null && !isBossDead && !isPlayerDead)
-        {
-            isBossDead = true;
-            StartCoroutine(SmoothTransition(new Vector3(5f, 4f, 0f), 2f));
-        }
+        instance = this;
+    }
+    public void openDoor()
+    {
+        StartCoroutine(OpenDoor());
     }
 
-    private IEnumerator SmoothTransition(Vector3 targetPosition, float duration)
+    private IEnumerator OpenDoor()
     {
+        Vector3 targetPosition = new Vector3(-22f, 24f, 0f);
         yield return new WaitForSeconds(1f);
         if(PlayerHealth.instance.currentHealth <= 0)
         {
             yield break; // Exit if the player is dead
         }
         AudioManager.instance.bossIsDead = true;
-        isBossDead = true;
         yield return new WaitForSeconds(7.5f);
 
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < 5f)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / duration));
+            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / 5f));
             elapsedTime += Time.deltaTime;
             yield return null;
         }

@@ -30,6 +30,20 @@ public class BossPatern : MonoBehaviour
     private bool jumpingAnimation = false;
     public Animator animator;
 
+    public bool istouched = false;
+
+    public static BossPatern instance;
+
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("there is more than one instance BossPatern");
+        }
+        instance = this;
+    }
+
     void Start()
     {
         //target start in the dirrection of the first waypoint
@@ -39,6 +53,11 @@ public class BossPatern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(istouched)
+        {
+            return;
+        }
+
         animator.SetBool("jumpingAnimation", jumpingAnimation);
         Vector3 dir = target.position - transform.position;
         //position of enemy = move with position of enemy has init, target.position has target, speed * fps for the delay
@@ -104,6 +123,42 @@ public class BossPatern : MonoBehaviour
         }
     }
 
+    public void Istouched()
+    {
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        //CREATE TOUCH ANIMATION bossGraphics.animator.SetTrigger("Touched");
+    }
+
+    public void ResetBoss()
+    {
+        graphics.enabled = true;
+        rb.isKinematic = false;
+        gameObject.GetComponent<Collider2D>().enabled = true;
+        istouched = false;
+    }
+
+    public void Die()
+    {
+        //CREATE DEATH ANIMATION bossGraphics.animator.SetTrigger("Die");
+        OnBossDeath.instance.openDoor();
+    }
+
+    public void Blink()
+    {
+        istouched = true;
+        StartCoroutine(FlashBoss());
+    }
+    private IEnumerator FlashBoss()
+    {
+        //while variable istouched is true, the graphics alpha of character altern from 0 to 1 every xf time
+        for (int i = 0; i < 15; i++)
+        {
+            graphics.enabled = !graphics.enabled;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
 }
 
