@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BossWeakSpot : MonoBehaviour
 {
+    public BoxCollider2D weakSpotCollider1;
+    public BoxCollider2D weakSpotCollider2;
     public AudioClip BossHitSound;
     public GameObject objectToDestroy;
     private bool bossIsHit = false;
@@ -12,10 +14,8 @@ public class BossWeakSpot : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Boss Weak Spot Hit");
             if(countOfHit >= 3)
             {
-                Destroy(objectToDestroy);
                 BossPatern.instance.Die();
                 return;
             }
@@ -29,11 +29,14 @@ public class BossWeakSpot : MonoBehaviour
 
     private IEnumerator FlashBoss()
     {
+        weakSpotCollider1.enabled = false;
+        weakSpotCollider2.enabled = false;
         BossPatern.instance.Istouched();
-        BossPatern.instance.Blink();
         countOfHit++;
         bossIsHit = false;
-        yield return new WaitForSeconds(8f); // Add a delay of 1 second (adjust as needed)
+        yield return new WaitForSeconds(2f); // Add a delay of 1 second (adjust as needed)
         BossPatern.instance.ResetBoss();
+        weakSpotCollider1.enabled = true;
+        weakSpotCollider2.enabled = true;
     }
 }

@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a05c2aa762ca8ec9d78ed7be83ae18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 0
   wayPoints:
   - {fileID: 1186769670}
   - {fileID: 624070623}
@@ -1811,6 +1811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86f3fedef519368fae5a54c7d2565da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weakSpotCollider1: {fileID: 1922335754}
+  weakSpotCollider2: {fileID: 1922335755}
   BossHitSound: {fileID: 0}
   objectToDestroy: {fileID: 1188253890}
   countOfHit: 0

@@ -118,13 +118,18 @@ public class BossPatern : MonoBehaviour
         // if the enemy touch the player
         if (collision.gameObject.CompareTag("Player"))
         {
-            // give damage to the player
+            if(istouched)
+            {
+                return;
+            }
             PlayerHealth.instance.TakeDamage(damageOnCollision);
         }
     }
 
     public void Istouched()
     {
+        istouched = true;
+        animator.SetTrigger("BossTouched");
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
@@ -133,6 +138,7 @@ public class BossPatern : MonoBehaviour
 
     public void ResetBoss()
     {
+        animator.SetTrigger("ResetBoss");
         graphics.enabled = true;
         rb.isKinematic = false;
         gameObject.GetComponent<Collider2D>().enabled = true;
@@ -141,23 +147,10 @@ public class BossPatern : MonoBehaviour
 
     public void Die()
     {
+        istouched = true;
         //CREATE DEATH ANIMATION bossGraphics.animator.SetTrigger("Die");
         OnBossDeath.instance.openDoor();
-    }
-
-    public void Blink()
-    {
-        istouched = true;
-        StartCoroutine(FlashBoss());
-    }
-    private IEnumerator FlashBoss()
-    {
-        //while variable istouched is true, the graphics alpha of character altern from 0 to 1 every xf time
-        for (int i = 0; i < 15; i++)
-        {
-            graphics.enabled = !graphics.enabled;
-            yield return new WaitForSeconds(0.1f);
-        }
+        Destroy(gameObject);
     }
 
 }
