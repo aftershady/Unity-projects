@@ -22,7 +22,7 @@ public class OnBossDeath : MonoBehaviour
 
     private IEnumerator OpenDoor()
     {
-        Vector3 targetPosition = new Vector3(-22f, 24f, 0f);
+        Vector3 targetPosition = new Vector3(-23f, 24f, 0f);
         yield return new WaitForSeconds(1f);
         if(PlayerHealth.instance.currentHealth <= 0)
         {
@@ -34,9 +34,9 @@ public class OnBossDeath : MonoBehaviour
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
 
-        while (elapsedTime < 5f)
+        while (elapsedTime < 2f)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / 5f));
+            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / 2f));
             elapsedTime += Time.deltaTime;
             yield return null;
         }

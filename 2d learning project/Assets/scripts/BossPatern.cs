@@ -27,7 +27,6 @@ public class BossPatern : MonoBehaviour
     public SpriteRenderer graphics;
     // store SpriteRenderer in a variable for flip
     private bool isJumping = false;
-    private bool jumpingAnimation = false;
     public Animator animator;
 
     public bool istouched = false;
@@ -57,8 +56,6 @@ public class BossPatern : MonoBehaviour
         {
             return;
         }
-
-        animator.SetBool("jumpingAnimation", jumpingAnimation);
         Vector3 dir = target.position - transform.position;
         //position of enemy = move with position of enemy has init, target.position has target, speed * fps for the delay
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -77,7 +74,6 @@ public class BossPatern : MonoBehaviour
             if (!isJumping)
             {
                 isJumping = true;
-                jumpingAnimation = true;
                 StartCoroutine(Jump());
             }
             if (destPoint == 0)
@@ -102,13 +98,14 @@ public class BossPatern : MonoBehaviour
 
     private IEnumerator Jump()
     {
+        animator.SetTrigger("Jump");
         // Set the Rigidbody2D's velocity to a jump force
         rb.velocity = new Vector2(rb.velocity.x, 10f);
         // Wait for 0.5 seconds before continuing
         yield return new WaitForSeconds(0.6f);
         // Reset the Rigidbody2D's velocity to zero
         rb.velocity = Vector2.zero;
-        jumpingAnimation = false;
+        animator.SetTrigger("Land");
         yield return new WaitForSeconds(Random.Range(0.5f, 5f));
         isJumping = false;
     }
@@ -134,6 +131,7 @@ public class BossPatern : MonoBehaviour
         rb.isKinematic = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
         //CREATE TOUCH ANIMATION bossGraphics.animator.SetTrigger("Touched");
+        speed++;
     }
 
     public void ResetBoss()
