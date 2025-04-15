@@ -27,10 +27,12 @@ public class BossPatern : MonoBehaviour
     public SpriteRenderer graphics;
     // store SpriteRenderer in a variable for flip
     private bool isJumping = false;
+    public bool isAttacking = false;
     public Animator animator;
 
     public bool istouched = false;
 
+    public GameObject weakSpot;
     public static BossPatern instance;
 
 
@@ -98,14 +100,24 @@ public class BossPatern : MonoBehaviour
 
     private IEnumerator Jump()
     {
+        if(!istouched)
+        {
+            weakSpot.GetComponent<BossWeakSpot>().attack();
+        }
         animator.SetTrigger("Jump");
         // Set the Rigidbody2D's velocity to a jump force
-        rb.velocity = new Vector2(rb.velocity.x, 10f);
+        rb.velocity = new Vector2(rb.velocity.x, 9f);
         // Wait for 0.5 seconds before continuing
         yield return new WaitForSeconds(0.6f);
         // Reset the Rigidbody2D's velocity to zero
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Land");
+        if(!istouched)
+        {
+            weakSpot.GetComponent<BossWeakSpot>().stopAttack();
+        }
+
+        // RANDOM TIME
         yield return new WaitForSeconds(Random.Range(0.5f, 5f));
         isJumping = false;
     }
