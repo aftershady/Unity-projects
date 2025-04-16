@@ -5,10 +5,8 @@ public class BossWeakSpot : MonoBehaviour
 {
     public BoxCollider2D weakSpotCollider1;
     public BoxCollider2D weakSpotCollider2;
-    public AudioClip BossHitSound;
     public GameObject objectToDestroy;
     private bool bossIsHit = false;
-    private bool bossIsInvincible = false;
 
     public int countOfHit = 0;
 
@@ -31,7 +29,7 @@ public class BossWeakSpot : MonoBehaviour
 
     private IEnumerator FlashBoss()
     {
-        bossIsInvincible = true;
+        BossPatern.instance.IsInvincible = true;
         weakSpotCollider1.enabled = false;
         weakSpotCollider2.enabled = false;
         BossPatern.instance.Istouched();
@@ -46,7 +44,7 @@ public class BossWeakSpot : MonoBehaviour
         yield return new WaitForSeconds(6f);
         bossColor.a = 1f;
         BossPatern.instance.GetComponent<SpriteRenderer>().color = bossColor;
-        bossIsInvincible = false;
+        BossPatern.instance.IsInvincible = false;
         weakSpotCollider1.enabled = true;
         weakSpotCollider2.enabled = true;
     }
@@ -59,7 +57,7 @@ public class BossWeakSpot : MonoBehaviour
 
     public void stopAttack()
     {
-        if(bossIsInvincible)
+        if(BossPatern.instance.IsInvincible)
         {
             return;
         }

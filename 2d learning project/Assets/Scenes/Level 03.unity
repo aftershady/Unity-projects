@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5be723007a94e8789a48fd7aef1edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToDestroy: {fileID: 1188253890}
 --- !u!82 &194809025
 AudioSource:
   m_ObjectHideFlags: 0
@@ -642,6 +643,7 @@ GameObject:
   - component: {fileID: 782077917}
   - component: {fileID: 782077918}
   - component: {fileID: 782077919}
+  - component: {fileID: 782077920}
   m_Layer: 7
   m_Name: graphics
   m_TagString: Untagged
@@ -678,6 +680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  jumpSpeed: 0.6
+  jumpForce: 9
   wayPoints:
   - {fileID: 1186769670}
   - {fileID: 624070623}
@@ -685,11 +689,16 @@ MonoBehaviour:
   - {fileID: 631020932}
   - {fileID: 1911555120}
   rb: {fileID: 782077918}
-  damageOnCollision: 20
+  damageOnCollision: 0
   graphics: {fileID: 782077916}
   isAttacking: 0
-  animator: {fileID: 782077919}
   istouched: 0
+  animator: {fileID: 782077919}
+  audioSource: {fileID: 782077920}
+  bossJump: {fileID: 8300000, guid: a5cf47b866a3e0214bf61478109efe22, type: 3}
+  bossHit: {fileID: 8300000, guid: 72ee7bd7666e114b3b031a3b3773ff24, type: 3}
+  bossIsInvincible: {fileID: 8300000, guid: d1c69bb68676343a6bd701a3f842a43f, type: 3}
+  bossDie: {fileID: 8300000, guid: 4707304af95a7ac518d76140de0511c5, type: 3}
   weakSpot: {fileID: 1922335752}
 --- !u!212 &782077916
 SpriteRenderer:
@@ -836,6 +845,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &782077920
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782077912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 2217592030933847386, guid: e6cf33cb8423e840da2a2a299854f96b, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &845388431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1158,7 @@ Grid:
   m_GameObject: {fileID: 1337521745}
   m_Enabled: 1
   m_CellSize: {x: 1, y: 1, z: 0}
-  m_CellGap: {x: -0.001, y: -0.001, z: -0}
+  m_CellGap: {x: -0.001, y: 0, z: -0}
   m_CellLayout: 0
   m_CellSwizzle: 0
 --- !u!4 &1337521747
@@ -1835,7 +1940,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakSpotCollider1: {fileID: 1922335754}
   weakSpotCollider2: {fileID: 1922335755}
-  BossHitSound: {fileID: 0}
   objectToDestroy: {fileID: 1188253890}
   countOfHit: 0
 --- !u!1 &2024415652

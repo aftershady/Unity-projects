@@ -29,6 +29,7 @@ OpenGameArt.Org:
 	- 8-Bit Sound Library.zip by Little Robot Sound Factory
 	- JRPG Collection by Yubatake
 	- stone_door.ogg by bonebrah
+	- mutantdie.wav by Gobusto
 
 sprites:
 

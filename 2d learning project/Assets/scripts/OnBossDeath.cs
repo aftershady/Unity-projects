@@ -6,6 +6,7 @@ using UnityEngine;
 public class OnBossDeath : MonoBehaviour
 {
     public static OnBossDeath instance;
+    public GameObject objectToDestroy;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class OnBossDeath : MonoBehaviour
         }
         AudioManager.instance.bossIsDead = true;
         yield return new WaitForSeconds(7.5f);
+        Destroy(objectToDestroy);
 
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;

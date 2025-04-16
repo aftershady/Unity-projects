@@ -10,6 +10,8 @@ public class BossPatern : MonoBehaviour
     //speed of enemy
     public float speed;
     // array of the class transform to set waypoints
+    public float jumpSpeed;
+    public float jumpForce;
     public Transform[] wayPoints;
     // point targeted by the enemy movement
     private Transform target;
@@ -28,11 +30,25 @@ public class BossPatern : MonoBehaviour
     // store SpriteRenderer in a variable for flip
     private bool isJumping = false;
     public bool isAttacking = false;
+    public bool istouched = false;
+    public bool IsInvincible = false;
     public Animator animator;
 
-    public bool istouched = false;
+    /*******************************************************************************/
+    //AUDIO
+    /*******************************************************************************/
+    public AudioSource audioSource;
+    public AudioClip bossJump;
+    public AudioClip bossHit;
+    public AudioClip bossIsInvincible;
+    public AudioClip bossDie;
 
+    /*******************************************************************************/
     public GameObject weakSpot;
+
+    /*******************************************************************************/
+    //SINGLETON
+    /*******************************************************************************/
     public static BossPatern instance;
 
 
@@ -100,21 +116,28 @@ public class BossPatern : MonoBehaviour
 
     private IEnumerator Jump()
     {
-        if(!istouched)
+        if(!istouched && !IsInvincible)
         {
             weakSpot.GetComponent<BossWeakSpot>().attack();
+            Color tempColor = gameObject.GetComponent<SpriteRenderer>().color;
+            tempColor.a = 0.4f;
+            gameObject.GetComponent<SpriteRenderer>().color = tempColor;
         }
         animator.SetTrigger("Jump");
+        audioSource.PlayOneShot(bossJump);
         // Set the Rigidbody2D's velocity to a jump force
-        rb.velocity = new Vector2(rb.velocity.x, 9f);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         // Wait for 0.5 seconds before continuing
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(jumpSpeed);
         // Reset the Rigidbody2D's velocity to zero
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Land");
-        if(!istouched)
+        if(!istouched && !IsInvincible)
         {
             weakSpot.GetComponent<BossWeakSpot>().stopAttack();
+            Color tempColor = gameObject.GetComponent<SpriteRenderer>().color;
+            tempColor.a = 1f;
+            gameObject.GetComponent<SpriteRenderer>().color = tempColor;
         }
 
         // RANDOM TIME
@@ -137,6 +160,7 @@ public class BossPatern : MonoBehaviour
 
     public void Istouched()
     {
+        audioSource.PlayOneShot(bossHit);
         istouched = true;
         animator.SetTrigger("BossTouched");
         rb.velocity = Vector2.zero;
@@ -148,6 +172,7 @@ public class BossPatern : MonoBehaviour
 
     public void ResetBoss()
     {
+        audioSource.PlayOneShot(bossIsInvincible);
         animator.SetTrigger("ResetBoss");
         graphics.enabled = true;
         rb.isKinematic = false;
@@ -157,12 +182,15 @@ public class BossPatern : MonoBehaviour
 
     public void Die()
     {
+        AudioManager.instance.PlayClipAt(bossDie, transform.position);
+        animator.SetTrigger("Die");
         istouched = true;
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
+        gameObject.GetComponent<Collider2D>().enabled = false;
         //CREATE DEATH ANIMATION bossGraphics.animator.SetTrigger("Die");
         OnBossDeath.instance.openDoor();
-        Destroy(gameObject);
     }
-
 }
 
 
