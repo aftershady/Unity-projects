@@ -31,4 +31,4 @@ Special thanks to the following resources and communities that have helped me le
 ## 📜 License
 
 All original content in this repository (scripts, scenes, assets I created myself) is under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
-Third-party assets used for learning purposes may have their own licenses; please check their sources.
+Third-party assets used for learning purposes may have their own licenses; please check their sources in the README of the folders
