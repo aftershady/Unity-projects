@@ -29,11 +29,16 @@ public class GameOverManager : MonoBehaviour
 
     public void RetryButton()
     {
-
+        // if the player has taken the checkpoint, respawn at the checkpoint
         if(CurrentSceneManager.instance.isPlayerHaveTakenTheCheckpoint)
         {
             checkPoint = GameObject.FindGameObjectWithTag("CheckPoint").transform;
             PlayerHealth.instance.transform.position = checkPoint.position;
+        }
+        // if the player has not taken the checkpoint, respawn at the start of the level
+        else if(CurrentSceneManager.instance.isPlayerPresentByDefault == true)
+        {
+            PlayerHealth.instance.Respawn();
         }
         else
         {
@@ -42,11 +47,14 @@ public class GameOverManager : MonoBehaviour
 
         Inventory.instance.ResetCoins();
         gameOverUI.SetActive(false);
+
+        // Reset the player position and health if player is not present by default
         if(CurrentSceneManager.instance.isPlayerPresentByDefault == false && SceneManager.GetActiveScene().name != "Level 03")
         {
             PlayerHealth.instance.Respawn();
             AudioManager.instance.audioSource.clip = AudioManager.instance.playlist[0];
         }
+        // if level is level 03 do the same as above but with the second clip
         else if (CurrentSceneManager.instance.isPlayerPresentByDefault == false && SceneManager.GetActiveScene().name == "Level 03")
         {
             PlayerHealth.instance.Respawn();

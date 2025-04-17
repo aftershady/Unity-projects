@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  jumpSpeed: 0.6
+  jumpSpeed: 0.5
   jumpForce: 9
   wayPoints:
   - {fileID: 1186769670}
@@ -689,10 +689,11 @@ MonoBehaviour:
   - {fileID: 631020932}
   - {fileID: 1911555120}
   rb: {fileID: 782077918}
-  damageOnCollision: 0
+  damageOnCollision: 20
   graphics: {fileID: 782077916}
   isAttacking: 0
   istouched: 0
+  IsInvincible: 0
   animator: {fileID: 782077919}
   audioSource: {fileID: 782077920}
   bossJump: {fileID: 8300000, guid: a5cf47b866a3e0214bf61478109efe22, type: 3}
