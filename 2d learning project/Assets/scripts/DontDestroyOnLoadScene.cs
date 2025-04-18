@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class DontDestroyOnLoadScene : MonoBehaviour
 {
     public GameObject[] objects;
-    public GameObject timer;
     public static DontDestroyOnLoadScene instance;
 
     private void Awake()
@@ -17,10 +16,6 @@ public class DontDestroyOnLoadScene : MonoBehaviour
 
         AddToDontDestroyOnLoad(objects);
 
-        if (timer != null)
-        {
-            DontDestroyOnLoad(timer);
-        }
     }
 
     public void RemoveFromDontDestroyOnLoad()
@@ -33,7 +28,7 @@ public class DontDestroyOnLoadScene : MonoBehaviour
 
     public void AddToDontDestroyOnLoad(GameObject[] objects)
     {
-        Debug.Log("Adding objects to DontDestroyOnLoad");
+
         foreach(var element in objects)
         {
             DontDestroyOnLoad(element);

@@ -25,10 +25,12 @@ public class GameOverManager : MonoBehaviour
             DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         }
         gameOverUI.SetActive(true);
+        TimerDisplay.instance.PauseTimer();
     }
 
     public void RetryButton()
     {
+        TimerDisplay.instance.Continue();
         // if the player has taken the checkpoint, respawn at the checkpoint
         if(CurrentSceneManager.instance.isPlayerHaveTakenTheCheckpoint)
         {
@@ -38,6 +40,7 @@ public class GameOverManager : MonoBehaviour
         // if the player has not taken the checkpoint, respawn at the start of the level
         else if(CurrentSceneManager.instance.isPlayerPresentByDefault == true)
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             PlayerHealth.instance.Respawn();
         }
         else
