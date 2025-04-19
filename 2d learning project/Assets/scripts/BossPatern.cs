@@ -182,6 +182,7 @@ public class BossPatern : MonoBehaviour
 
     public void Die()
     {
+        TimerDisplay.instance.PauseTimer();
         AudioManager.instance.PlayClipAt(bossDie, transform.position);
         animator.SetTrigger("Die");
         istouched = true;

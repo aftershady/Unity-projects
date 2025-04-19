@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerPresentByDefault: 0
+  isPlayerHaveTakenTheCheckpoint: 0

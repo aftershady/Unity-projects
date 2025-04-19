@@ -98,6 +98,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        TimerDisplay.instance.PauseTimer();
         PlayerMovement.instance.enabled = false;
         AudioManager.instance.audioSource.Stop();
         audioSource.PlayOneShot(gameOverSound);

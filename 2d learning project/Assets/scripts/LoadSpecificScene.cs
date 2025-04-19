@@ -19,6 +19,11 @@ public class LoadSpecificScene : MonoBehaviour
         //if the player tag enter in coin
         if(collision.CompareTag("Player"))
         {
+            if(sceneName == "Credits")
+            {
+                PlayCredits();
+                return;
+            }
             collision.GetComponent<PlayerMovement>().enabled = false;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(loadNextScene(collision));
@@ -33,4 +38,11 @@ public class LoadSpecificScene : MonoBehaviour
         collision.GetComponent<PlayerMovement>().enabled = true;
         SceneManager.LoadScene(sceneName);
     }
+
+    public void PlayCredits()
+    {
+        //credits method
+    }
+
+
 }

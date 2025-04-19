@@ -7,6 +7,8 @@ public class TimerDisplay : MonoBehaviour
 {
     public GameObject timerObject;
     public Text timerText;
+    public int minutes = 0;
+    public int seconds = 0;
 
     private float elapsedTime = 0f;
 
@@ -42,8 +44,8 @@ public class TimerDisplay : MonoBehaviour
             elapsedTime += Time.deltaTime;
 
             // Calculate minutes and seconds
-            int minutes = Mathf.FloorToInt(elapsedTime / 60F);
-            int seconds = Mathf.FloorToInt(elapsedTime % 60F);
+            minutes = Mathf.FloorToInt(elapsedTime / 60F);
+            seconds = Mathf.FloorToInt(elapsedTime % 60F);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
@@ -52,11 +54,13 @@ public class TimerDisplay : MonoBehaviour
     {
         elapsedTime = 0f;
         timerText.text = "00:00";
+        enabled = true;
     }
 
     public void Continue()
     {
-            ResetTimer();
+        enabled = true;
+
     }
 
     public void PauseTimer()
