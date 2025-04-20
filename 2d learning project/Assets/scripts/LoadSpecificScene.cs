@@ -41,7 +41,7 @@ public class LoadSpecificScene : MonoBehaviour
 
     public void PlayCredits()
     {
-        //credits method
+        PlayerMovement.instance.enabled = false;
     }
 
 
