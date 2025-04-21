@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
     public AudioClip closeMenuSound;
     public string levelToLoad;
     public GameObject SettingsWindow;
-
     public void start()
     {
         Screen.fullScreen = true;
