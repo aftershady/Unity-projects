@@ -693,11 +693,11 @@ MonoBehaviour:
     SOUNDS COME FROM THE WEBSITE OPENGAMEART.ORG\n\n\n<size=130>SPRITESHEET</size>\n\nCREATED
     BY BUCH\n\n<size=90>OTHERS PROPS</size>\nYOUTUBER TUTO UNITY FR\n\n\n<size=130>FONTS</size>\n\nPIXELATED
     FONT BY SKYLAR PARK\n\n\n<size=130>SPECIAL THANKS</size>\n\nUNITY COMMUNITY -
-    OPEN SOURCE CONTRIBUTORS\nTUTO UNITY FR CHANNEL\n\n\n\n\n\n\n\n\n\n\n\n\n\n<size=
+    OPEN SOURCE CONTRIBUTORS\nTUTO UNITY FR CHANNEL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<size=
     80>VERSION: 1.0</size>   \n\n<size= 60>THIS PROJECT IS SHARED WITHOUT WARRANTY. 
-    \n\nPLEASE NOTE THAT THIRD-PARTY ASSETS ARE SUBJECT TO THEIR\n OWN RESPECTIVE
-    LICENSES AND MAY REQUIRE ATTRIBUTION.</size>\n<size= 80>\xA9 2025 AFTERSHADY.
-    ALL RIGHTS RESERVED.</size>\n"
+    \nPLEASE NOTE THAT THIRD-PARTY ASSETS ARE SUBJECT TO \nTHEIR OWN RESPECTIVE LICENSES
+    AND MAY REQUIRE ATTRIBUTION.\n</size><size= 80>\xA9 2025 AFTERSHADY. ALL RIGHTS
+    RESERVED.</size>\n"
 --- !u!222 &220563614
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -847,15 +847,15 @@ RectTransform:
   m_GameObject: {fileID: 340302252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220563612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -3663}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -3701}
+  m_SizeDelta: {x: 1536, y: 1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340302254
 MonoBehaviour:
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ef81818e9ea5e611a73bad60139c53f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e924e15c52e34a337832b153d93f785c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1462,15 +1462,15 @@ RectTransform:
   m_GameObject: {fileID: 1124117613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220563612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43, y: 4358}
-  m_SizeDelta: {x: 1024, y: 1024}
+  m_AnchoredPosition: {x: 6, y: 4381}
+  m_SizeDelta: {x: 1536, y: 1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124117615
 MonoBehaviour:
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ef81818e9ea5e611a73bad60139c53f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e924e15c52e34a337832b153d93f785c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1520,7 +1520,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1132724314}
   - component: {fileID: 1132724313}
-  - component: {fileID: 1132724312}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1528,14 +1527,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1132724312
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132724311}
-  m_Enabled: 1
 --- !u!20 &1132724313
 Camera:
   m_ObjectHideFlags: 0
@@ -1751,7 +1742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -47.828796, y: 4658.8438}
+  m_AnchoredPosition: {x: 93, y: 4658.8438}
   m_SizeDelta: {x: 997.7561, y: -9100.668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435200883
@@ -1767,7 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
