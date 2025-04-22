@@ -8,10 +8,28 @@ public class LoadSpecificScene : MonoBehaviour
     public AudioClip doorSound;
     public string sceneName;
     public Animator fadeSystem;
+    public bool creditsArePlaying = false;
+    public GameObject escapeButton;
+
+    public GameObject Creditscanvas;
+
+    public GameObject credits;
 
     private void Awake()
     {
         fadeSystem = GameObject.FindGameObjectWithTag("FadeSystem").GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (creditsArePlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                TimerDisplay.instance.Continue();
+                SceneManager.LoadScene("Main Menu");
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +39,7 @@ public class LoadSpecificScene : MonoBehaviour
         {
             if(sceneName == "Credits")
             {
+                collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 PlayCredits();
                 return;
             }
@@ -41,7 +60,22 @@ public class LoadSpecificScene : MonoBehaviour
 
     public void PlayCredits()
     {
+        Creditscanvas.SetActive(true);
+        StartCoroutine(waitForCredits());
         PlayerMovement.instance.enabled = false;
+        credits.GetComponent<Animator>().SetTrigger("StartCredits");
+        creditsArePlaying = true;
+        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
+
+    }
+
+    public IEnumerator waitForCredits()
+    {
+        yield return new WaitForSeconds(30f);
+        escapeButton.SetActive(true);
+        yield return new WaitForSeconds(30f);
+        TimerDisplay.instance.Continue();
+        SceneManager.LoadScene("Main Menu");
     }
 
 
