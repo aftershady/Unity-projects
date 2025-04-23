@@ -1,14 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     public GameObject Creditscanvas;
+    public GameObject creditsContent;
     public AudioSource audioSource;
     public AudioClip openMenuSound;
     public AudioClip closeMenuSound;
     public string levelToLoad;
     public GameObject SettingsWindow;
 
+    public bool creditsArePlaying = false;
+
+                //LINK STOP CREDITS ANIMATION
+                //RESOLVE PROBLEM WITH AUDIO OF MAIN MENU
+                //ESC TOUCH TO ADD
+                //EDIT CURVE TO END CREDITS
+                // CORRECT TITLE OF GAME IN CREDITS
 
     public void start()
     {
@@ -21,7 +30,8 @@ public class MainMenu : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                SceneManager.LoadScene("Main Menu");
+                Creditscanvas.SetActive(false);
+                creditsContent.GetComponent<Animator>().SetTrigger("StopCredits");
             }
         }
     }
@@ -46,8 +56,15 @@ public class MainMenu : MonoBehaviour
     {
         Creditscanvas.SetActive(true);
         StartCoroutine(waitForCredits());
-        credits.GetComponent<Animator>().SetTrigger("StartCredits");
+        creditsContent.GetComponent<Animator>().SetTrigger("StartCredits");
         creditsArePlaying = true;
+    }
+
+    public IEnumerator waitForCredits()
+    {
+        yield return new WaitForSeconds(60);
+        SceneManager.LoadScene("Main Menu");
+        creditsArePlaying = false;
     }
 
     public void SettingsButton()
