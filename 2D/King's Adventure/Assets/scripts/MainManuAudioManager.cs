@@ -25,6 +25,10 @@ public class MainManuAudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+        void Update()
+    {
+    }
+
 
 
 }
