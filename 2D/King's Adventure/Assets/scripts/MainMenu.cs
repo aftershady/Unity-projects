@@ -8,16 +8,17 @@ public class MainMenu : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip openMenuSound;
     public AudioClip closeMenuSound;
+    
     public string levelToLoad;
+
+    private Coroutine creditsCoroutine;
+
+    public GameObject escapeButton;
+    public bool isEscapeButtonActive = false;
     public GameObject SettingsWindow;
+    public bool soundisPlaying = false;
 
     public bool creditsArePlaying = false;
-
-                //LINK STOP CREDITS ANIMATION
-                //RESOLVE PROBLEM WITH AUDIO OF MAIN MENU
-                //ESC TOUCH TO ADD
-                //EDIT CURVE TO END CREDITS
-                // CORRECT TITLE OF GAME IN CREDITS
 
     public void start()
     {
@@ -28,10 +29,19 @@ public class MainMenu : MonoBehaviour
     {
         if (creditsArePlaying)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.anyKeyDown)
             {
-                Creditscanvas.SetActive(false);
-                creditsContent.GetComponent<Animator>().SetTrigger("StopCredits");
+                if(!isEscapeButtonActive)
+                {
+                    StartCoroutine(ActivateEscapeButton());
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    StopCoroutine(creditsCoroutine);
+                    creditsCoroutine = null;
+                    Creditscanvas.SetActive(false);
+                    creditsContent.GetComponent<Animator>().SetTrigger("StopCredits");
+                }
             }
         }
     }
@@ -39,6 +49,22 @@ public class MainMenu : MonoBehaviour
     public void OpenMenuSound()
     {
         audioSource.PlayOneShot(openMenuSound);
+    }
+
+    public void levelSliderSound()
+    {
+        if (!soundisPlaying)
+        {
+            soundisPlaying = true;
+            StartCoroutine(PlaylevelSliderSound());
+        }
+    }
+
+    public IEnumerator PlaylevelSliderSound()
+    {
+        audioSource.PlayOneShot(openMenuSound);
+        yield return new WaitForSeconds(1f);
+        soundisPlaying = false;
     }
 
     public void CloseMenuSound()
@@ -55,16 +81,27 @@ public class MainMenu : MonoBehaviour
     public void PlayCredits()
     {
         Creditscanvas.SetActive(true);
-        StartCoroutine(waitForCredits());
+        creditsCoroutine = StartCoroutine(waitForCredits());
         creditsContent.GetComponent<Animator>().SetTrigger("StartCredits");
         creditsArePlaying = true;
     }
 
     public IEnumerator waitForCredits()
     {
-        yield return new WaitForSeconds(60);
-        SceneManager.LoadScene("Main Menu");
+        yield return new WaitForSeconds(85);
+        creditsCoroutine = null;
+        Creditscanvas.SetActive(false);
+        creditsContent.GetComponent<Animator>().SetTrigger("StopCredits");
         creditsArePlaying = false;
+    }
+
+    public IEnumerator ActivateEscapeButton()
+    {
+            isEscapeButtonActive = true;
+            escapeButton.SetActive(true);
+            yield return new WaitForSeconds(8f);
+            escapeButton.SetActive(false);
+            isEscapeButtonActive = false;
     }
 
     public void SettingsButton()

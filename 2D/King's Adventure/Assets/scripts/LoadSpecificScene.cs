@@ -10,7 +10,7 @@ public class LoadSpecificScene : MonoBehaviour
     public Animator fadeSystem;
     public bool creditsArePlaying = false;
     public GameObject escapeButton;
-
+    public bool isEscapeButtonActive = false;
     public GameObject Creditscanvas;
 
     public GameObject credits;
@@ -28,6 +28,22 @@ public class LoadSpecificScene : MonoBehaviour
             {
                 TimerDisplay.instance.Continue();
                 SceneManager.LoadScene("Main Menu");
+            }
+        }
+
+        if (creditsArePlaying)
+        {
+            if (Input.anyKeyDown)
+            {
+                if(!isEscapeButtonActive)
+                {
+                    StartCoroutine(ActivateEscapeButton());
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    TimerDisplay.instance.Continue();
+                    SceneManager.LoadScene("Main Menu");
+                }
             }
         }
     }
@@ -63,7 +79,7 @@ public class LoadSpecificScene : MonoBehaviour
         Creditscanvas.SetActive(true);
         StartCoroutine(waitForCredits());
         PlayerMovement.instance.enabled = false;
-        credits.GetComponent<Animator>().SetTrigger("StartCredits");
+        credits.GetComponent<Animator>().SetTrigger("StartEndCredits");
         creditsArePlaying = true;
         DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
 
@@ -71,11 +87,18 @@ public class LoadSpecificScene : MonoBehaviour
 
     public IEnumerator waitForCredits()
     {
-        yield return new WaitForSeconds(30f);
-        escapeButton.SetActive(true);
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(63);
         TimerDisplay.instance.Continue();
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public IEnumerator ActivateEscapeButton()
+    {
+        isEscapeButtonActive = true;
+        escapeButton.SetActive(true);
+        yield return new WaitForSeconds(8f);
+        escapeButton.SetActive(false);
+        isEscapeButtonActive = false;
     }
 
 

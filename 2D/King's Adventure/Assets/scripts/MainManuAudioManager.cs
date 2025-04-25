@@ -27,6 +27,11 @@ public class MainManuAudioManager : MonoBehaviour
 
         void Update()
     {
+        if(!audioSource.isPlaying)
+        {
+            //if player is alive and audio is not playing
+            audioSource.Play();
+        }
     }
 
 

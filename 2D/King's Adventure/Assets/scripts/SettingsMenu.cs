@@ -14,8 +14,10 @@ public class SettingsMenu : MonoBehaviour
 
     public void Start()
     {
+
         audioMixer.GetFloat("Music", out float musicValueForSlider);
         audioMixer.GetFloat("Sound", out float soundValueForSlider);
+        audioMixer.SetFloat("Sound", -80f);
         musicSlider.value = musicValueForSlider;
         soundSlider.value = soundValueForSlider;
 

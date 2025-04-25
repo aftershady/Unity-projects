@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 public class PauseMenu : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip openMenuSound;
     public AudioClip closeMenuSound;
     public GameObject SettingsWindow;
+    public bool soundisPlaying = false;
 
     public void Paused()
     {
@@ -31,7 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseMenuSound()
     {
-        audioSource.PlayOneShot(closeMenuSound);
+        AudioManager.instance.PlayClipAt(closeMenuSound, transform.position);
     }
 
     public void CloseSettingsButton()
@@ -48,4 +50,21 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+        public void levelSliderSound()
+    {
+        if (!soundisPlaying)
+        {
+            soundisPlaying = true;
+            StartCoroutine(PlaylevelSliderSound());
+        }
+    }
+
+    public IEnumerator PlaylevelSliderSound()
+    {
+        audioSource.PlayOneShot(openMenuSound);
+        yield return new WaitForSeconds(1f);
+        soundisPlaying = false;
+    }
+
 }
