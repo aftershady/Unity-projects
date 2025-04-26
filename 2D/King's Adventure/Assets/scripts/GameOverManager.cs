@@ -9,6 +9,9 @@ public class GameOverManager : MonoBehaviour
     public GameObject gameOverUI;
     public static GameOverManager instance;
 
+    public GameObject player;
+    public GameObject playerspawn;
+
     private void Awake()
     {
         if(instance != null)
@@ -45,11 +48,6 @@ public class GameOverManager : MonoBehaviour
             PlayerHealth.instance.transform.position = checkPoint.position;
         }
         // if the player has not taken the checkpoint, respawn at the start of the level
-        else if(CurrentSceneManager.instance.isPlayerPresentByDefault == true)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            PlayerHealth.instance.Respawn();
-        }
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

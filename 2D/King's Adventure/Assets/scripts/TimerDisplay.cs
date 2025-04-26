@@ -18,7 +18,7 @@ public class TimerDisplay : MonoBehaviour
     {
         if(instance != null)
         {
-            Debug.LogWarning("there is more than one instance PlayerHealth");
+            Debug.LogWarning("there is more than one instance TimerDisplay");
         }
 
         if (instance == null)
