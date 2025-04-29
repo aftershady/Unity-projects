@@ -10,6 +10,7 @@ TagManager:
   - ladderText
   - CheckPoint
   - Timer
+  - ChestText
   layers:
   - Default
   - TransparentFX
