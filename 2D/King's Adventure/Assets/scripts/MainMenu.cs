@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip openMenuSound;
     public AudioClip closeMenuSound;
-    
+
     public string levelToLoad;
 
     private Coroutine creditsCoroutine;
@@ -76,6 +76,12 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(levelToLoad);
+    }
+
+    public void LevelSelect()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level Select Menu");
     }
 
     public void PlayCredits()
