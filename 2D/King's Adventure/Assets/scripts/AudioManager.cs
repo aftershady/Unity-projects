@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
             //if player is alive and audio is not playing
             audioSource.Play();
         }
-        if (SceneManager.GetActiveScene().name == "Level 03" && !bossIsDead)
+        if ((SceneManager.GetActiveScene().name == "Level 03" && !bossIsDead) || (SceneManager.GetActiveScene().name == "Level 03-2" && !bossIsDead))
         {
             //play boss music
             audioSource.clip = playlist[1];
