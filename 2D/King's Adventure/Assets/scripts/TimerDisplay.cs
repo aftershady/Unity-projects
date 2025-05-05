@@ -7,10 +7,10 @@ public class TimerDisplay : MonoBehaviour
 {
     public GameObject timerObject;
     public Text timerText;
-    public int minutes = 0;
+    public int minutes = 3;
     public int seconds = 0;
 
-    private float elapsedTime = 0f;
+    public float elapsedTime = 0f;
 
     public static TimerDisplay instance;
 
