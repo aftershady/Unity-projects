@@ -10,7 +10,7 @@ public class PlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.activeSelf == false && PlayerHealth.instance.currentHealth > 0)
         {
             pauseMenu.GetComponent<PauseMenu>().Paused();
         }

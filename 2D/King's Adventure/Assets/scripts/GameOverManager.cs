@@ -50,6 +50,10 @@ public class GameOverManager : MonoBehaviour
         // if the player has not taken the checkpoint, respawn at the start of the level
         else
         {
+            if (SceneManager.GetActiveScene().name != "Level 02" && SceneManager.GetActiveScene().name != "Level 03")
+            {
+                DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

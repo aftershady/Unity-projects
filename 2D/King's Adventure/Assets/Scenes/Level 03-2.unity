@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1905190693}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -1571,7 +1571,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 16
+  m_Text: 0
 --- !u!222 &372601016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1663,7 +1663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1905190693}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
@@ -1902,6 +1902,7 @@ MonoBehaviour:
   timerText: {fileID: 478489028}
   minutes: 0
   seconds: 26
+  elapsedTime: 0
 --- !u!114 &478489028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,7 +1936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:26
+  m_Text: 00:00
 --- !u!222 &478489029
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2682,7 +2683,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1905190693}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: RetryButton
         m_Mode: 1
@@ -4066,6 +4067,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699073910}
   m_CullTransparentMesh: 1
+--- !u!1 &1809689374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938378883283422946, guid: f4ce6184d6dffd7ca813f2e37fa5d1e2, type: 3}
+  m_PrefabInstance: {fileID: 304480649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815889442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4280,10 +4286,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 113912986}
+    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1625917909}
+    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1413811671}
+    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: objects.Array.data[3]
+      value: 
+      objectReference: {fileID: 2129390918}
+    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: objects.Array.data[4]
+      value: 
+      objectReference: {fileID: 2104584303}
     - target: {fileID: 5617213394824779317, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 201642524}
+    - target: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1899145880}
+    - target: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: playerspawn
+      value: 
+      objectReference: {fileID: 1809689374}
     - target: {fileID: 6252324826907361492, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.29
@@ -4329,6 +4367,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+--- !u!114 &1905190693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+  m_PrefabInstance: {fileID: 1905190692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25906cc77ba01055872c61ddc15dcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1909249319
 GameObject:
   m_ObjectHideFlags: 0

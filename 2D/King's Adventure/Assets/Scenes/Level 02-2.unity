@@ -1790,7 +1790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979711395}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
@@ -3624,12 +3624,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7844258891441645412, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844258891441645412, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1307647759}
     - target: {fileID: 7844258891441645412, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844258891441645412, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844258891441645412, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17168,7 +17180,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979711395}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
@@ -17608,6 +17620,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 893803446}
+    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: objects.Array.data[0]
       value: 
       objectReference: {fileID: 1591961793}
@@ -17688,6 +17704,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+--- !u!114 &1979711395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+  m_PrefabInstance: {fileID: 1979711394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25906cc77ba01055872c61ddc15dcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2023396900
 GameObject:
   m_ObjectHideFlags: 0
@@ -29293,7 +29320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1979711395}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: RetryButton
         m_Mode: 1
