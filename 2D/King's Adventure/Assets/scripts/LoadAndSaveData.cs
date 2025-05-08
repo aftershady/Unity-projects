@@ -23,8 +23,8 @@ public class LoadAndSaveData : MonoBehaviour
         isGameLoaded = PlayerPrefs.GetInt("isGameLoaded", 0) == 1;
         if(isGameLoaded == true)
         {
-            Debug.Log("LoadAndSaveData Start");
             LoadData();
+            LoadPlayerPosition();
             PlayerPrefs.SetInt("isGameLoaded", 0);
         }
 
@@ -45,24 +45,15 @@ public class LoadAndSaveData : MonoBehaviour
     {
         PlayerPrefs.SetInt("PlayerHealth", PlayerHealth.instance.currentHealth);
         PlayerPrefs.SetInt("CoinsCount", Inventory.instance.coinsCount);
-        if (SceneManager.GetActiveScene().name == "Level 02")
-        {
-            PlayerPrefs.SetInt("Level", 3); // Assuming "Level 02-2" corresponds to build index 3
-        }
-        else if (SceneManager.GetActiveScene().name == "Level 03")
-        {
-
-            PlayerPrefs.SetInt("Level", 5); // Assuming "Level 03" corresponds to build index 5
-        }
-        else
-        {
-            Debug.Log("LoadAndSaveData Start");
-            PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
-        }
-        PlayerPrefs.SetFloat("PlayerPositionX", PlayerMovement.instance.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", PlayerMovement.instance.transform.position.y);
+        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("TimerMinutes", TimerDisplay.instance.minutes);
         PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds);
+    }
+
+    public void SavePlayerPosition()
+    {
+        PlayerPrefs.SetFloat("PlayerPositionX", PlayerMovement.instance.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPositionY", PlayerMovement.instance.transform.position.y);
     }
 
     public void LoadData()
@@ -71,10 +62,14 @@ public class LoadAndSaveData : MonoBehaviour
         PlayerHealth.instance.healthBar.SetHealth(PlayerPrefs.GetInt("PlayerHealth"));
         Inventory.instance.coinsCount = PlayerPrefs.GetInt("CoinsCount");
         Inventory.instance.coinsCountText.text = PlayerPrefs.GetInt("CoinsCount").ToString();
+        TimerDisplay.instance.elapsedTime = (PlayerPrefs.GetInt("TimerMinutes") * 60) + PlayerPrefs.GetInt("TimerSeconds");
+    }
+
+    public void LoadPlayerPosition()
+    {
         float playerPosX = PlayerPrefs.GetFloat("PlayerPositionX");
         float playerPosY = PlayerPrefs.GetFloat("PlayerPositionY");
         PlayerMovement.instance.transform.position = new Vector3(playerPosX, playerPosY, 0);
-        TimerDisplay.instance.elapsedTime = (PlayerPrefs.GetInt("TimerMinutes") * 60) + PlayerPrefs.GetInt("TimerSeconds");
     }
 
 }

@@ -15,8 +15,6 @@ public class DontDestroyOnLoadScene : MonoBehaviour
         }
         instance = this;
 
-        AddToDontDestroyOnLoad(objects);
-
     }
 
     public void RemoveFromDontDestroyOnLoad()
@@ -26,14 +24,5 @@ public class DontDestroyOnLoadScene : MonoBehaviour
             SceneManager.MoveGameObjectToScene(element, SceneManager.GetActiveScene());
         }
         SceneManager.MoveGameObjectToScene(Timer, SceneManager.GetActiveScene());
-    }
-
-    public void AddToDontDestroyOnLoad(GameObject[] objects)
-    {
-
-        foreach(var element in objects)
-        {
-            DontDestroyOnLoad(element);
-        }
     }
 }

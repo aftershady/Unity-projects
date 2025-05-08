@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 18250182}
   - component: {fileID: 18250181}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: LEVEL 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 659712070}
   - component: {fileID: 659712069}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: LEVEL 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,7 +726,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 03-2
+          m_StringArgument: Level 03
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &659712070
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 1069253203}
   - component: {fileID: 1069253202}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: LEVEL 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 02-2
+          m_StringArgument: Level 02
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1069253203

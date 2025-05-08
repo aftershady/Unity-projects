@@ -16,20 +16,12 @@ public class TimerDisplay : MonoBehaviour
 
     void Awake()
     {
+
         if(instance != null)
         {
             Debug.LogWarning("there is more than one instance TimerDisplay");
         }
-
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(timerObject);
-        }
-        else
-        {
-            Destroy(timerObject); // détruire le doublon
-        }
+        instance = this;
     }
 
     void Update()

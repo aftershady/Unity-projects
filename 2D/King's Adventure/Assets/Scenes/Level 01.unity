@@ -21688,6 +21688,7 @@ MonoBehaviour:
   timerText: {fileID: 1943512767}
   minutes: 0
   seconds: 0
+  elapsedTime: 0
 --- !u!1001 &1953114680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37289,6 +37290,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6152826336628527825, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1490288502}
+    - target: {fileID: 6152826336628527825, guid: fc7b6ab45ee2a24f9a7dde4c95002251, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1490288502}
     m_RemovedComponents: []

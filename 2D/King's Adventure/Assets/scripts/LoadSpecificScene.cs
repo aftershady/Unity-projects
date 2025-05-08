@@ -20,6 +20,16 @@ public class LoadSpecificScene : MonoBehaviour
         fadeSystem = GameObject.FindGameObjectWithTag("FadeSystem").GetComponent<Animator>();
     }
 
+    void Start()
+    {
+        if(PlayerPrefs.GetInt("doorOpened") == 1)
+        {
+            Debug.Log("door opened");
+            LoadAndSaveData.instance.LoadData();
+            PlayerPrefs.SetInt("doorOpened", 0);
+        }
+    }
+
     void Update()
     {
         if (creditsArePlaying)
@@ -53,6 +63,8 @@ public class LoadSpecificScene : MonoBehaviour
         //if the player tag enter in coin
         if(collision.CompareTag("Player"))
         {
+            LoadAndSaveData.instance.SaveData();
+            PlayerPrefs.SetInt("doorOpened", 1);
             if(sceneName == "Credits")
             {
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
