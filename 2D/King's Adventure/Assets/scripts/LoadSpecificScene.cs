@@ -79,7 +79,9 @@ public class LoadSpecificScene : MonoBehaviour
 
     public IEnumerator loadNextScene(Collider2D collision)
     {
-        PlayerPrefs.SetInt("levelReached", CurrentSceneManager.instance.levelToUnlock);
+        PlayerPrefs.SetInt("LevelReached", CurrentSceneManager.instance.levelToUnlock);
+        int test = PlayerPrefs.GetInt("LevelReached");
+        Debug.Log("Level reached: " + test);
         audioSource.PlayOneShot(doorSound);
         fadeSystem.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);

@@ -10,7 +10,6 @@ public class LevelSelector : MonoBehaviour
     private void Start()
     {
         int levelReached = PlayerPrefs.GetInt("LevelReached", 1);
-
         for (int i = 0; i < levelButtons.Length; i++)
         {
             if (i + 1 > levelReached)
@@ -19,7 +18,15 @@ public class LevelSelector : MonoBehaviour
                 lockers[i].gameObject.SetActive(true);
             }
         }
+    }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log("Save is deleted");
+            PlayerPrefs.SetInt("LevelReached", 1);
+        }
     }
 
     public void LoadLevelPassed(string levelName)
