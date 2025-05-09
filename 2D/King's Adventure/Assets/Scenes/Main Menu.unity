@@ -1414,6 +1414,34 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1737475470123325415, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744214249457339525, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2632
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945906919668405566, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390590856654281188, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
+      propertyPath: m_Text
+      value: "\n\n\n\n\n\n<size=130>DEVELOPERS</size>\n\nAFTERSHADY\n\n\nREALIZED
+        BY FOLLOWING THE TUTORIAL OF THE YOUTUBE CHANNEL TUTO UNITY FR\n\n\n<size=130>TOOLS</size>\n\nUNITY\nVISUAL
+        STUDIO CODE\n\n\n<size=130>MUSIC</size>\n\nMINTODOG\nSELECT MOUNTAIN BPM120\nCENTURION_OF_WAR\nCOMBAT
+        HEAVY\nVOLCANO OF BEARS\nPROMINADE\nTINYWORLDS\nHAPPY_ADVETURE\nLITTLE ROBOT
+        SOUND FACTORY\n8-BIT SOUND LIBRARY\nYUBATAKE\nJRPG COLLECTION \nBONEBRAH\nSTONE_DOOR\nGOBUSTO\nMUTANTDIE.WAV\n\nALL
+        SOUNDS COME FROM THE WEBSITE OPENGAMEART.ORG\n\n\n<size=130>SPRITESHEET</size>\n\nCREATED
+        BY BUCH\n\n<size=90>OTHERS PROPS</size>\nYOUTUBER TUTO UNITY FR\n\n\n<size=130>FONTS</size>\n\nPIXELATED
+        FONT BY SKYLAR PARK\n\n\n<size=130>SPECIAL THANKS</size>\n\nUNITY COMMUNITY
+        - OPEN SOURCE CONTRIBUTORS\nTUTO UNITY FR CHANNEL\n\n\n\n\n\n\n\n\n\n\n\n<size=
+        80>VERSION: 1.0</size>   \n\n<size= 60>THIS PROJECT IS SHARED WITHOUT WARRANTY. 
+        \nPLEASE NOTE THAT THIRD-PARTY ASSETS ARE SUBJECT TO \nTHEIR OWN RESPECTIVE
+        LICENSES AND MAY REQUIRE ATTRIBUTION.\n</size><size= 80>\xA9 2025 AFTERSHADY.
+        ALL RIGHTS RESERVED.</size>\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 6771386744066233114, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
       propertyPath: m_Name
       value: Credits
@@ -1421,6 +1449,10 @@ PrefabInstance:
     - target: {fileID: 6771386744066233114, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150178172976545499, guid: 1ae29440b9dab217b9f85d9b9a126f69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelector : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip levelSelectorMusic;
     public Button[] levelButtons;
     public Image[] lockers;
     private void Start()
@@ -18,10 +20,17 @@ public class LevelSelector : MonoBehaviour
                 lockers[i].gameObject.SetActive(true);
             }
         }
+        audioSource.clip = levelSelectorMusic;
+        audioSource.Play();
     }
 
     void Update()
     {
+        if(!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("Save is deleted");
