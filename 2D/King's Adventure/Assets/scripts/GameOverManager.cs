@@ -32,6 +32,7 @@ public class GameOverManager : MonoBehaviour
 
     public void RetryButton()
     {
+        PlayerPrefs.SetInt("PlayerIsRespawning", 1);
         if (SceneManager.GetActiveScene().name == "Level 01")
         {
             TimerDisplay.instance.ResetTimer();

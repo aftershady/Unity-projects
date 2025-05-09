@@ -59,7 +59,16 @@ public class PlayerHealth : MonoBehaviour
         //set the cursor value and the variable max value frome slider to 100
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        audioSource.PlayOneShot(playerRespawnSound);
+        if(PlayerPrefs.GetInt("PlayerIsRespawning") == 1)
+        {
+            audioSource.PlayOneShot(playerRespawnSound);
+            PlayerMovement.instance.animator.SetTrigger("LaunchRespawn");
+            PlayerPrefs.SetInt("PlayerIsRespawning", 0);
+        }
+        else
+        {
+            PlayerMovement.instance.animator.SetTrigger("StartLevel");
+        }
     }
 
     void Update()

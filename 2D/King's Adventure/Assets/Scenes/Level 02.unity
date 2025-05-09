@@ -3239,6 +3239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CurrentSceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7049137756134240171, guid: fc71df72a9b046dd0946f72e89a2f7a4, type: 3}
+      propertyPath: levelToUnlock
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
