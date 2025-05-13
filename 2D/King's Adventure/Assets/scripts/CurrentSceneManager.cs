@@ -15,6 +15,4 @@ public class CurrentSceneManager : MonoBehaviour
         }
         instance = this;
     }
-
-
 }
