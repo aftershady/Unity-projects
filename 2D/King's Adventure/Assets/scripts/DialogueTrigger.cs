@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    public bool isInRange;
+    public bool isInRange = false;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
     }
 
 
-    private void OntriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -26,7 +26,9 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OntriggerExit2D(Collider2D collision)
+
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

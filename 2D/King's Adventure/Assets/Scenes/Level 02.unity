@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 188489313}
   - component: {fileID: 188489312}
   - component: {fileID: 188489311}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 234}
   m_SizeDelta: {x: 1171.4917, y: 322.19342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267097519
@@ -1100,8 +1100,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307947125}
-  - component: {fileID: 307947127}
-  - component: {fileID: 307947126}
   m_Layer: 0
   m_Name: PNJ
   m_TagString: Untagged
@@ -1125,70 +1123,6 @@ Transform:
   - {fileID: 1555857837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &307947126
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307947124}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 9.397825, y: 1.5106856}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.2994614, y: 0.8551357}
-  m_EdgeRadius: 0
---- !u!114 &307947127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307947124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01c4645506ab6729b8cd77e59cdd470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: ARI
-    sentences:
-    - CHMOOOOOOOOOOOOOOOOOOOOD CHMOOOOOOOOOOOOOD PUTAIN
-    - CHMOOOOOOOOOOOOOOOD MAIS J'AI DIS CHMOOOOOOOOOOOOOOOOOOOOOOOOOOD PUTAAAAAAAAAAAAAAAAAAAAAAAAAIN
-    - LA BITE A TRESOR
-  isInRange: 0
 --- !u!1 &345666944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,7 +3103,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SUCE MA BITE
+  m_Text: TEST
 --- !u!222 &969362192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4628,6 +4562,8 @@ GameObject:
   - component: {fileID: 1555857837}
   - component: {fileID: 1555857836}
   - component: {fileID: 1555857835}
+  - component: {fileID: 1555857839}
+  - component: {fileID: 1555857838}
   m_Layer: 0
   m_Name: graphics
   m_TagString: Untagged
@@ -4723,6 +4659,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 307947125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1555857838
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555857834}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1555857839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555857834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01c4645506ab6729b8cd77e59cdd470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: ARI
+    sentences:
+    - BONJOUR VOYAGEUR, J'ECOUTE DU JUL ET VOUS ?
+    - SAVEZ VOUS QU'ON L'APPELLE L'OVNI ?
+    - WESH ALORS ?
+  isInRange: 0
 --- !u!1 &1564212351
 GameObject:
   m_ObjectHideFlags: 0
@@ -18516,7 +18516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2005654016}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1979711399}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &2005654018
 CanvasRenderer:
   m_ObjectHideFlags: 0

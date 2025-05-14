@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
 
     public Text nameText;
     public Text dialogueText;
+
+    public Queue<string> sentences;
     public static DialogueManager instance;
 
     private void Awake()
@@ -17,10 +19,53 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("there is more than one instance DialogueManager");
         }
         instance = this;
+
+        sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         nameText.text = dialogue.name;
+        sentences.Clear();
+        foreach (string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+        DisplayNextSentence();
+    }
+
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+        string sentence = sentences.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    public IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // Change KeyCode.Space to any key you want
+        {
+            DisplayNextSentence();
+        }
+    }
+
+    void EndDialogue()
+    {
+        Debug.Log("End of conversation");
     }
 }
