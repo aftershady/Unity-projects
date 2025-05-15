@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - Timer
   - ChestText
+  - TalkPnjUI
   layers:
   - Default
   - TransparentFX
