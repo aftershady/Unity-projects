@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
+    public GameObject dialoguePanel;
+    public bool pannelIsOpen = false;
     public Text nameText;
     public Text dialogueText;
 
@@ -25,6 +26,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialoguePanel.SetActive(true);
+        pannelIsOpen = true;
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -64,8 +67,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
-        Debug.Log("End of conversation");
+        dialoguePanel.SetActive(false);
+        pannelIsOpen = false;
     }
 }

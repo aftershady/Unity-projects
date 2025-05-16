@@ -7,10 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool isInRange = false;
 
-    public GameObject dialoguePanel;
     private GameObject talkToPnjUI;
-
-    public bool pannelIsOpen = false;
 
     void Awake()
     {
@@ -19,12 +16,17 @@ public class DialogueTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.T) && pannelIsOpen == false)
+        if (isInRange && Input.GetKeyDown(KeyCode.T) && DialogueManager.instance.pannelIsOpen == false)
         {
-                dialoguePanel.SetActive(true);
-                pannelIsOpen = true;
-                TriggerDialogue();
+            TriggerDialogue();
         }
+
+        if (DialogueManager.instance.pannelIsOpen == true)
+        {
+            talkToPnjUI.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+
 
     }
 
@@ -47,8 +49,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            dialoguePanel.SetActive(false);
-            pannelIsOpen = false;
+
+            DialogueManager.instance.EndDialogue();
             talkToPnjUI.transform.GetChild(0).gameObject.SetActive(false);
             isInRange = false;
         }

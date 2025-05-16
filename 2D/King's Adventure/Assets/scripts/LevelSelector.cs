@@ -33,8 +33,8 @@ public class LevelSelector : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Debug.Log("Save is deleted");
             PlayerPrefs.SetInt("LevelReached", 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
