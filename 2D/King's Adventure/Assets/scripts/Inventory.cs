@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 
 public class Inventory : MonoBehaviour
 {
+    public List<Item> content = new List<Item>();
     //counter of coins
     public int coinsCount;
     //text who display number of coins
@@ -19,6 +21,14 @@ public class Inventory : MonoBehaviour
             Debug.LogWarning("there is more than one instance Inventory");
         }
         instance = this;
+    }
+
+    public void consumeItem()
+    {
+        Item currentItem = content[0];
+        PlayerHealth.instance.HealPlayer(currentItem.hpGiven);
+        PlayerMovement.instance.moveSpeed += currentItem.speedGiven;
+        content.Remove(currentItem);
     }
 
     public void AddCoins(int count)

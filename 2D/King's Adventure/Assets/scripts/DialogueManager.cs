@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Change KeyCode.Space to any key you want
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             DisplayNextSentence();
         }
