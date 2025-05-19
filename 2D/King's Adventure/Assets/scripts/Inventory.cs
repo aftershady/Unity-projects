@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour
 {
     public List<Item> content = new List<Item>();
+    public int contentCurrentIndex = 0;
     //counter of coins
     public int coinsCount;
     //text who display number of coins
@@ -29,6 +30,24 @@ public class Inventory : MonoBehaviour
         PlayerHealth.instance.HealPlayer(currentItem.hpGiven);
         PlayerMovement.instance.moveSpeed += currentItem.speedGiven;
         content.Remove(currentItem);
+    }
+
+    public void GetNextItem()
+    {
+        contentCurrentIndex++;
+        if (contentCurrentIndex > content.Count - 1)
+        {
+            contentCurrentIndex = 0;
+        }
+    }
+
+    public void GetPreviousItem()
+    {
+        contentCurrentIndex--;
+        if (contentCurrentIndex < 0)
+        {
+            contentCurrentIndex = content.Count - 1;
+        }
     }
 
     public void AddCoins(int count)
