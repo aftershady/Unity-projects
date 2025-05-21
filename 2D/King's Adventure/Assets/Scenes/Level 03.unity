@@ -3376,8 +3376,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2918afba3af88f7fd81eec429578d612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noItemText: {fileID: 0}
+  content: []
+  contentCurrentIndex: 0
   coinsCount: 16
   coinsCountText: {fileID: 372601015}
+  itemImageUI: {fileID: 0}
+  itemNameUI: {fileID: 0}
 --- !u!1 &1495214314
 GameObject:
   m_ObjectHideFlags: 0

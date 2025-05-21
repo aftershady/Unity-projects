@@ -12,7 +12,8 @@ public class Inventory : MonoBehaviour
     public int coinsCount;
     //text who display number of coins
     public Text coinsCountText;
-    public Image itemUIImage;
+    public Image itemImageUI;
+    public Text itemNameUI;
 
     //create singleton
     public static Inventory instance;
@@ -78,13 +79,15 @@ public class Inventory : MonoBehaviour
     {
         if (content.Count > 0)
         {
-            itemUIImage.sprite = content[contentCurrentIndex].image;
+            itemImageUI.sprite = content[contentCurrentIndex].image;
+            itemNameUI.text = content[contentCurrentIndex].name;
             noItemText.gameObject.SetActive(false);
         }
         else
         {
-            itemUIImage.sprite = null;
+            itemImageUI.sprite = null;
             noItemText.gameObject.SetActive(true);
+            itemNameUI.text = "";
         }
     }
 

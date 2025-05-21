@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickUpObject : MonoBehaviour
+public class PickUpCoin : MonoBehaviour
 {
     public AudioClip pickCoinSound;
     private void OnTriggerEnter2D(Collider2D collision)
