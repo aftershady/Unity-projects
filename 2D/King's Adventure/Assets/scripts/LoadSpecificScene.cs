@@ -93,7 +93,6 @@ public class LoadSpecificScene : MonoBehaviour
         PlayerMovement.instance.enabled = false;
         credits.GetComponent<Animator>().SetTrigger("StartEndCredits");
         creditsArePlaying = true;
-        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
 
     }
 

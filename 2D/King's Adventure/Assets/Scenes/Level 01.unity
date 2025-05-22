@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2388536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938378883283422946, guid: f4ce6184d6dffd7ca813f2e37fa5d1e2, type: 3}
+  m_PrefabInstance: {fileID: 1102138713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &23858253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,6 +315,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c00de3c9f802b16fad8a1f6466fd154, type: 3}
+--- !u!114 &87131991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8073988403941531664, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+  m_PrefabInstance: {fileID: 8137067445773230595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &87210354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -869,6 +885,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3561560695879089412, guid: df5c63acbe10aa65f84b7cfaf8c5d4f1, type: 3}
   m_PrefabInstance: {fileID: 898878355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &483498700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2942430116093893689, guid: 765cf5b68677eb6fcbc9aa8b8b5c2609, type: 3}
+  m_PrefabInstance: {fileID: 6417816094996148743}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &548201783
 PrefabInstance:
@@ -19848,6 +19869,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3561560695879089412, guid: df5c63acbe10aa65f84b7cfaf8c5d4f1, type: 3}
   m_PrefabInstance: {fileID: 1600898847}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1925466818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5684168061474586944, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+  m_PrefabInstance: {fileID: 8137067445773230595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1953114680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20194,6 +20226,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2123480396 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8460516724462154850, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+  m_PrefabInstance: {fileID: 8137067445773230595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2130647892
 GameObject:
   m_ObjectHideFlags: 0
@@ -35079,9 +35122,17 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 483498700}
+    - target: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1418267126}
+    - target: {fileID: 5775509841218469033, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: playerspawn
+      value: 
+      objectReference: {fileID: 2388536}
     - target: {fileID: 6252324826907361492, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.29
@@ -35212,6 +35263,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTools
       objectReference: {fileID: 0}
+    - target: {fileID: 5565879526768520491, guid: 765cf5b68677eb6fcbc9aa8b8b5c2609, type: 3}
+      propertyPath: itemNameUI
+      value: 
+      objectReference: {fileID: 87131991}
+    - target: {fileID: 5565879526768520491, guid: 765cf5b68677eb6fcbc9aa8b8b5c2609, type: 3}
+      propertyPath: noItemText
+      value: 
+      objectReference: {fileID: 2123480396}
+    - target: {fileID: 5565879526768520491, guid: 765cf5b68677eb6fcbc9aa8b8b5c2609, type: 3}
+      propertyPath: itemImageUI
+      value: 
+      objectReference: {fileID: 1925466818}
     - target: {fileID: 5565879526768520491, guid: 765cf5b68677eb6fcbc9aa8b8b5c2609, type: 3}
       propertyPath: coinsCountText
       value: 

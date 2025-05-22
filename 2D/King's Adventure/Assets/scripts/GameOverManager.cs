@@ -23,10 +23,6 @@ public class GameOverManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
-        if(CurrentSceneManager.instance.isPlayerPresentByDefault == true)
-        {
-            DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
-        }
         gameOverUI.SetActive(true);
     }
 
@@ -51,10 +47,6 @@ public class GameOverManager : MonoBehaviour
         // if the player has not taken the checkpoint, respawn at the start of the level
         else
         {
-            if (SceneManager.GetActiveScene().name != "Level 02" && SceneManager.GetActiveScene().name != "Level 03")
-            {
-                DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
-            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
@@ -78,7 +70,6 @@ public class GameOverManager : MonoBehaviour
     public void MainMenuButton()
     {
         SceneManager.LoadScene("Main Menu");
-        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
     }
 
     public void QuitButton()
