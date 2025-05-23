@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
-    public AudioSource audioSource;
     public AudioClip pickItemSound;
 
     public Item item;
@@ -19,6 +18,7 @@ public class PickUpItem : MonoBehaviour
 
     void TakeItem()
     {
+        pickItemSound = item.pickItemSound;
         AudioManager.instance.PlayClipAt(pickItemSound, transform.position);
         Inventory.instance.content.Add(item);
         Inventory.instance.UpdateInventoryUI();
