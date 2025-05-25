@@ -8,6 +8,10 @@ public class PickUpItem : MonoBehaviour
 
     public Item item;
 
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().sprite = item.image;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

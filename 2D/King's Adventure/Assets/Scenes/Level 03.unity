@@ -2237,9 +2237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noItemText: {fileID: 130728947}
-  content:
-  - {fileID: 11400000, guid: e28c1e5d4049a3773a558f15a7d69573, type: 2}
-  - {fileID: 11400000, guid: 185fc3bb78b74c33db99c4db299e828d, type: 2}
+  content: []
   contentCurrentIndex: 0
   coinsCount: 16
   coinsCountText: {fileID: 1644220396}

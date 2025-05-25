@@ -10,7 +10,7 @@ public class LoadAndSaveData : MonoBehaviour
     private bool isGameLoaded = false;
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogWarning("there is more than one instance LoadAndSaveData");
         }
@@ -21,13 +21,12 @@ public class LoadAndSaveData : MonoBehaviour
     {
         Time.timeScale = 1;
         isGameLoaded = PlayerPrefs.GetInt("isGameLoaded", 0) == 1;
-        if(isGameLoaded == true)
+        if (isGameLoaded == true)
         {
             LoadData();
             LoadPlayerPosition();
             PlayerPrefs.SetInt("isGameLoaded", 0);
         }
-
     }
 
     public void continueGame()
