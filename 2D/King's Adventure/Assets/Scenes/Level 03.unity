@@ -1217,6 +1217,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+--- !u!114 &333867338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8710593572364780266, guid: fe69aaa34bf80dc719a5397f1d17f233, type: 3}
+  m_PrefabInstance: {fileID: 333867337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201642524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b89e151fe0093e5af2486819b21ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &478489025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,11 +2249,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noItemText: {fileID: 130728947}
   content: []
-  contentCurrentIndex: 0
   coinsCount: 16
   coinsCountText: {fileID: 1644220396}
   itemImageUI: {fileID: 1976826857}
   itemNameUI: {fileID: 1741604203}
+  playerEffect: {fileID: 333867338}
 --- !u!114 &1443403377 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 680088337576830453, guid: ad3660192290dbabb971fb9996973e5e, type: 3}

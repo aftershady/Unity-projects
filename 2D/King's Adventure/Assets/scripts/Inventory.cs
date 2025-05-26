@@ -7,13 +7,15 @@ public class Inventory : MonoBehaviour
 {
     public Text noItemText;
     public List<Item> content = new List<Item>();
-    public int contentCurrentIndex = 0;
+    private int contentCurrentIndex = 0;
     //counter of coins
     public int coinsCount;
     //text who display number of coins
     public Text coinsCountText;
     public Image itemImageUI;
     public Text itemNameUI;
+
+    public PlayerEffect playerEffect;
 
     //create singleton
     public static Inventory instance;
@@ -41,7 +43,7 @@ public class Inventory : MonoBehaviour
         }
         Item currentItem = content[contentCurrentIndex];
         PlayerHealth.instance.HealPlayer(currentItem.hpGiven);
-        PlayerMovement.instance.moveSpeed += currentItem.speedGiven;
+        playerEffect.AddSpeed(currentItem.speedGiven, currentItem.speedDuration);
         content.Remove(currentItem);
         GetNextItem();
         UpdateInventoryUI();
