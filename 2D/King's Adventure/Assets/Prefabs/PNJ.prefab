@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6967980550498312466}
   - component: {fileID: 7774237744900527833}
   - component: {fileID: 7609836142356217207}
-  - component: {fileID: 6207946601792374408}
   - component: {fileID: 2688151498256696272}
   m_Layer: 0
   m_Name: graphics
@@ -108,25 +107,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6207946601792374408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2519876483448397282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01c4645506ab6729b8cd77e59cdd470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: ARI
-    sentences:
-    - BONJOUR VOYAGEUR, J'ECOUTE DU JUL ET VOUS ?
-    - SAVEZ VOUS QU'ON L'APPELLE L'OVNI ?
-    - WESH ALORS ?
-  isInRange: 0
 --- !u!61 &2688151498256696272
 BoxCollider2D:
   m_ObjectHideFlags: 0

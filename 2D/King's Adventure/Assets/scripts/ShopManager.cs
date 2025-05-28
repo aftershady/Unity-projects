@@ -27,14 +27,18 @@ public class ShopManager : MonoBehaviour
     public void OpenShop(Item[] items, string pnjName)
     {
         PNJnameText.text = pnjName;
-        UpdateItemsToSell(items);
         ShopPanel.SetActive(true);
+        UpdateItemsToSell(items);
         pannelIsOpen = true;
-        sentences = new Queue<string>();
     }
 
     public void UpdateItemsToSell(Item[] items)
     {
+        // Clear existing buttons
+        for (int i = 0; i < itemsToSellParent.childCount; i++)
+        {
+            Destroy(itemsToSellParent.GetChild(i).gameObject);
+        }
         for (int i = 0; i < items.Length; i++)
         {
             Instantiate(sellButtonPrefab, itemsToSellParent);
@@ -43,7 +47,7 @@ public class ShopManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        ShopPanel.SetActive(false);
         pannelIsOpen = false;
+        ShopPanel.SetActive(false);
     }
 }
