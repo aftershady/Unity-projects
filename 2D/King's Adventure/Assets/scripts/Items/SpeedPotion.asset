@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   itemName: POTION DE VITESSE
-  description: AUGMENTE LA VITESSE DE 20%
+  description: AUGMENTE LA VITESSE DE 40%
   image: {fileID: 21300000, guid: d4431ff7788e201fa86cc991748bdfd7, type: 3}
   hpGiven: 0
-  speedGiven: 50
+  speedGiven: 100
   speedDuration: 10
   pickItemSound: {fileID: 8300000, guid: 082d70cac78d5efa58b238eb069c5b74, type: 3}
+  price: 10

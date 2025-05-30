@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7774237744900527833}
   - component: {fileID: 7609836142356217207}
   - component: {fileID: 2688151498256696272}
+  - component: {fileID: 1112383803283811084}
   m_Layer: 0
   m_Name: graphics
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2519876483448397282}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.3, y: 1.58, z: 0.008500991}
+  m_LocalPosition: {x: -0.02, y: 1, z: 0.008500991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1823854016, guid: 98482c35038a6a0b9bd6e8e320180532, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6645882, g: 0.2119971, b: 0.19861908, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,6 +153,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1112383803283811084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519876483448397282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adca26da595e49e11bb2b70fb6344b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+  pnjName: MOMO
+  itemsToSell:
+  - {fileID: 11400000, guid: e28c1e5d4049a3773a558f15a7d69573, type: 2}
+  - {fileID: 11400000, guid: 185fc3bb78b74c33db99c4db299e828d, type: 2}
 --- !u!1 &4857458089307730395
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,9 +180,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6838132477632465185}
   m_Layer: 0
-  m_Name: PNJ
+  m_Name: Seller
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -176,8 +194,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4857458089307730395}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.21, y: 2.661, z: -0.008500991}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.62, y: 2.661, z: -0.008500991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

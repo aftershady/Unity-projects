@@ -41,7 +41,12 @@ public class ShopManager : MonoBehaviour
         }
         for (int i = 0; i < items.Length; i++)
         {
-            Instantiate(sellButtonPrefab, itemsToSellParent);
+            GameObject button = Instantiate(sellButtonPrefab, itemsToSellParent);
+            SellButtonItem buttonSript = button.GetComponent<SellButtonItem>();
+            buttonSript.itemName.text = items[i].itemName;
+            buttonSript.itemImage.sprite = items[i].image;
+            buttonSript.itemPrice.text = items[i].price.ToString();
+            buttonSript.item = items[i];
         }
     }
 

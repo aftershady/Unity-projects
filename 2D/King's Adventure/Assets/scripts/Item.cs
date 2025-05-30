@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     public int speedGiven;
     public float speedDuration;
     public AudioClip pickItemSound;
+    public int price;
 
 }
 

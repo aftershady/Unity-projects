@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1339438233991659208}
   - component: {fileID: 60995191227074836}
   m_Layer: 5
-  m_Name: SellButton (Legacy)
+  m_Name: SellButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2436677337072058843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 60995191227074836}
+        m_TargetAssemblyTypeName: SellButtonItem, Assembly-CSharp
+        m_MethodName: buyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &60995191227074836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +227,7 @@ MonoBehaviour:
   itemName: {fileID: 1999620962900435069}
   itemImage: {fileID: 2293037580606913020}
   itemPrice: {fileID: 1369595619331061131}
+  item: {fileID: 0}
 --- !u!1 &5292476623090427826
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +295,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d0d6a8aaea3e3e376b83544847eaab46, type: 3}
-    m_FontSize: 20
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
