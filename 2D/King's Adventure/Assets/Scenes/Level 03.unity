@@ -1325,6 +1325,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478489025}
   m_CullTransparentMesh: 1
+--- !u!114 &498377532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5482240444920990725, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+  m_PrefabInstance: {fileID: 586688857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &525009057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6106443490499507544, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+  m_PrefabInstance: {fileID: 586688857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &574174619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4998257443941733368, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
@@ -1342,6 +1358,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1441118088}
+    - target: {fileID: 3385207190221973131, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1200045269}
+    - target: {fileID: 3385207190221973131, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndDialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 4534438855710369490, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2064,6 +2088,17 @@ Transform:
   - {fileID: 1911555120}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1200045269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2679988399076456291, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+  m_PrefabInstance: {fileID: 1905190692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ec8cf687c4b40d1a1399dc2ddbb868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1337521745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,6 +2721,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!224 &1561099016 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4159601191804138379, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+  m_PrefabInstance: {fileID: 586688857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1625917909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +2940,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2679988399076456291, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: ShopPanel
+      value: 
+      objectReference: {fileID: 525009057}
+    - target: {fileID: 2679988399076456291, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: PNJnameText
+      value: 
+      objectReference: {fileID: 498377532}
+    - target: {fileID: 2679988399076456291, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
+      propertyPath: itemsToSellParent
+      value: 
+      objectReference: {fileID: 1561099016}
     - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: Timer
       value: 

@@ -46,7 +46,7 @@ public class LoadAndSaveData : MonoBehaviour
         PlayerPrefs.SetInt("CoinsCount", Inventory.instance.coinsCount);
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("TimerMinutes", TimerDisplay.instance.minutes);
-        PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds);
+        PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds+1);
     }
 
     public void SavePlayerPosition()

@@ -9,6 +9,7 @@ public class LevelSelector : MonoBehaviour
     public AudioClip levelSelectorMusic;
     public Button[] levelButtons;
     public Image[] lockers;
+
     private void Start()
     {
         int levelReached = PlayerPrefs.GetInt("LevelReached", 1);
@@ -40,6 +41,7 @@ public class LevelSelector : MonoBehaviour
 
     public void LoadLevelPassed(string levelName)
     {
+        PlayerPrefs.SetInt("LevelLoadedByLevelSelelector", 1);
         // Load the level passed as a parameter
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
     }
