@@ -35344,6 +35344,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1490288502}
+    - target: {fileID: 5364104059657657118, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveDataManually
+      objectReference: {fileID: 0}
     - target: {fileID: 5396249136109610655, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
       propertyPath: m_Pivot.x
       value: 0

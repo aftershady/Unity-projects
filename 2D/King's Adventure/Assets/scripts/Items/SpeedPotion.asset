@@ -20,4 +20,4 @@ MonoBehaviour:
   speedGiven: 100
   speedDuration: 10
   pickItemSound: {fileID: 8300000, guid: 082d70cac78d5efa58b238eb069c5b74, type: 3}
-  price: 5
+  price: 10

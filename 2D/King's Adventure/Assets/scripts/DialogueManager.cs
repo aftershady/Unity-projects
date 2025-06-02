@@ -65,10 +65,6 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextSentence();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            EndDialogue();
-        }
     }
 
     public void EndDialogue()

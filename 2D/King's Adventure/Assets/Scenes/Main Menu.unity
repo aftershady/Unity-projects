@@ -656,7 +656,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2110371095}
         m_TargetAssemblyTypeName: LoadAndSaveData, Assembly-CSharp
-        m_MethodName: continueGame
+        m_MethodName: LoadDataManually
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -23,7 +23,7 @@ public class LoadAndSaveData : MonoBehaviour
         isGameLoaded = PlayerPrefs.GetInt("isGameLoaded", 0) == 1;
         if (isGameLoaded == true)
         {
-            LoadData();
+            LoadDataManually();
             LoadPlayerPosition();
             PlayerPrefs.SetInt("isGameLoaded", 0);
         }
@@ -46,8 +46,28 @@ public class LoadAndSaveData : MonoBehaviour
         PlayerPrefs.SetInt("CoinsCount", Inventory.instance.coinsCount);
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("TimerMinutes", TimerDisplay.instance.minutes);
-        PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds+1);
+        PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds);
     }
+
+        public void SaveDataManually()
+    {
+        PlayerPrefs.SetInt("ManPlayerHealth", PlayerHealth.instance.currentHealth);
+        PlayerPrefs.SetInt("ManCoinsCount", Inventory.instance.coinsCount);
+        PlayerPrefs.SetInt("ManLevel", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("ManTimerMinutes", TimerDisplay.instance.minutes);
+        PlayerPrefs.SetInt("ManTimerSeconds", TimerDisplay.instance.seconds);
+    }
+
+        public void LoadDataManually()
+    {
+        PlayerHealth.instance.currentHealth = PlayerPrefs.GetInt("ManPlayerHealth");
+        PlayerHealth.instance.healthBar.SetHealth(PlayerPrefs.GetInt("ManPlayerHealth"));
+        Inventory.instance.coinsCount = PlayerPrefs.GetInt("ManCoinsCount");
+        Inventory.instance.coinsCountText.text = PlayerPrefs.GetInt("ManCoinsCount").ToString();
+        TimerDisplay.instance.elapsedTime = (PlayerPrefs.GetInt("ManTimerMinutes") * 60) + PlayerPrefs.GetInt("TimerSeconds");
+    }
+
+
 
     public void SavePlayerPosition()
     {
