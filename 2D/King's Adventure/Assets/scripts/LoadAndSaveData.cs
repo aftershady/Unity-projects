@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class LoadAndSaveData : MonoBehaviour
 {
@@ -47,15 +48,22 @@ public class LoadAndSaveData : MonoBehaviour
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("TimerMinutes", TimerDisplay.instance.minutes);
         PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds);
+
+        //sauvegarde items
+        string itemsInInventory = string.Join(",", Inventory.instance.content.Select(x => x.id));
+        Debug.Log("Items in inventory: " + itemsInInventory);
     }
 
-        public void SaveDataManually()
+    public void SaveDataManually()
     {
         PlayerPrefs.SetInt("ManPlayerHealth", PlayerHealth.instance.currentHealth);
         PlayerPrefs.SetInt("ManCoinsCount", Inventory.instance.coinsCount);
         PlayerPrefs.SetInt("ManLevel", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("ManTimerMinutes", TimerDisplay.instance.minutes);
         PlayerPrefs.SetInt("ManTimerSeconds", TimerDisplay.instance.seconds);
+        string itemsInInventory = string.Join(",", Inventory.instance.content.Select(x => x.id));
+        Debug.Log("Items in inventory: " + itemsInInventory);
+        string[] itemsSaved = itemsInInventory.Split(',');
     }
 
         public void LoadDataManually()
