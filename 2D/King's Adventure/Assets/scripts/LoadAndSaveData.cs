@@ -49,9 +49,9 @@ public class LoadAndSaveData : MonoBehaviour
         PlayerPrefs.SetInt("TimerMinutes", TimerDisplay.instance.minutes);
         PlayerPrefs.SetInt("TimerSeconds", TimerDisplay.instance.seconds);
 
-        //sauvegarde items
+        //save items
         string itemsInInventory = string.Join(",", Inventory.instance.content.Select(x => x.id));
-        Debug.Log("Items in inventory: " + itemsInInventory);
+        PlayerPrefs.SetString("ItemsInInventory", itemsInInventory);
     }
 
     public void SaveDataManually()
@@ -61,9 +61,10 @@ public class LoadAndSaveData : MonoBehaviour
         PlayerPrefs.SetInt("ManLevel", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("ManTimerMinutes", TimerDisplay.instance.minutes);
         PlayerPrefs.SetInt("ManTimerSeconds", TimerDisplay.instance.seconds);
+
+        //save items
         string itemsInInventory = string.Join(",", Inventory.instance.content.Select(x => x.id));
-        Debug.Log("Items in inventory: " + itemsInInventory);
-        string[] itemsSaved = itemsInInventory.Split(',');
+        PlayerPrefs.SetString("ManItemsInInventory", itemsInInventory);
     }
 
         public void LoadDataManually()
@@ -73,6 +74,21 @@ public class LoadAndSaveData : MonoBehaviour
         Inventory.instance.coinsCount = PlayerPrefs.GetInt("ManCoinsCount");
         Inventory.instance.coinsCountText.text = PlayerPrefs.GetInt("ManCoinsCount").ToString();
         TimerDisplay.instance.elapsedTime = (PlayerPrefs.GetInt("ManTimerMinutes") * 60) + PlayerPrefs.GetInt("TimerSeconds");
+
+        //load items
+        string[] itemsSaved = PlayerPrefs.GetString("ManItemsInInventory", "").Split(',');
+        if (itemsSaved[0] == "")
+        {
+            return;
+        }
+        Inventory.instance.content.Clear();
+        foreach (string itemId in itemsSaved)
+        {
+            int id = int.Parse(itemId);
+            Item currentItem = ItemsDatabase.instance.allItems.Single(x => x.id == id);
+            Inventory.instance.content.Add(currentItem);
+        }
+        Inventory.instance.UpdateInventoryUI();
     }
 
 
@@ -90,6 +106,21 @@ public class LoadAndSaveData : MonoBehaviour
         Inventory.instance.coinsCount = PlayerPrefs.GetInt("CoinsCount");
         Inventory.instance.coinsCountText.text = PlayerPrefs.GetInt("CoinsCount").ToString();
         TimerDisplay.instance.elapsedTime = (PlayerPrefs.GetInt("TimerMinutes") * 60) + PlayerPrefs.GetInt("TimerSeconds");
+
+        //load items
+        string[] itemsSaved = PlayerPrefs.GetString("ItemsInInventory", "").Split(',');
+        if (itemsSaved[0] == "")
+        {
+            return;
+        }
+        Inventory.instance.content.Clear();
+        foreach (string itemId in itemsSaved)
+        {
+            int id = int.Parse(itemId);
+            Item currentItem = ItemsDatabase.instance.allItems.Single(x => x.id == id);
+            Inventory.instance.content.Add(currentItem);
+        }
+        Inventory.instance.UpdateInventoryUI();
     }
 
     public void LoadPlayerPosition()

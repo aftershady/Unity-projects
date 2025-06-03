@@ -804,11 +804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &421694514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7354433939130612469, guid: dd7aa62f8f7aa947cb993546562dee26, type: 3}
-  m_PrefabInstance: {fileID: 7183862386076890969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &438189207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4595072554220403101, guid: 7558e58721fff795aac660ec7311557d, type: 3}
@@ -2286,11 +2281,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3561560695879089412, guid: df5c63acbe10aa65f84b7cfaf8c5d4f1, type: 3}
   m_PrefabInstance: {fileID: 1953114680}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1535826093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3406570787598224649, guid: 765cf5b68677eb6fcbc9aa8b8b5c2609, type: 3}
-  m_PrefabInstance: {fileID: 6417816094996148743}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1564212351
 GameObject:
@@ -19688,11 +19678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1990721518 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 986058688078305555, guid: b490c6e5dc08093ccb5a86170db81e29, type: 3}
-  m_PrefabInstance: {fileID: 2076630766364386189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1999871531 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 493532639564649238, guid: ad3660192290dbabb971fb9996973e5e, type: 3}
@@ -34921,26 +34906,6 @@ PrefabInstance:
       propertyPath: itemsToSellParent
       value: 
       objectReference: {fileID: 1999871531}
-    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
-      propertyPath: Timer
-      value: 
-      objectReference: {fileID: 1990721518}
-    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
-      propertyPath: objects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1535826093}
-    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
-      propertyPath: objects.Array.data[1]
-      value: 
-      objectReference: {fileID: 953009971}
-    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
-      propertyPath: objects.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881928598872357246, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
-      propertyPath: objects.Array.data[4]
-      value: 
-      objectReference: {fileID: 421694514}
     - target: {fileID: 4136489641164171377, guid: 85cbad33b84e6d4b58793ed4f83fbf72, type: 3}
       propertyPath: nameText
       value: 

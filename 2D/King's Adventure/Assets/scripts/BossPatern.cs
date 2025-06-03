@@ -70,12 +70,6 @@ public class BossPatern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TEMPORARY KILL COMMAND (TESTING)
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Die();
-        }
-        //TEMPORARY KILL COMMAND (TESTING)
 
         //if boss is touched, stop the movement
         if(istouched)

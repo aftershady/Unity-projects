@@ -33,7 +33,7 @@ public class LevelSelector : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            PlayerPrefs.SetInt("LevelReached", 1);
+            PlayerPrefs.DeleteAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
