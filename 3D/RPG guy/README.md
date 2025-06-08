@@ -14,3 +14,10 @@
 ## Tools Used
 - Unity
 - Visual Studio Code
+
+## Free assets imported from the assets store
+Big Oak Tree FREE by Aleksey
+HQ Rock Pack Free by DNK_DEV
+Medieval house 3D by AndreiCG
+Yughues Free Ground Materials by Nobiax / Yughues
+
