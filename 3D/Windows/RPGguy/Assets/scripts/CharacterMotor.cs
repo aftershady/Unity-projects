@@ -15,9 +15,12 @@ public class CharacterMotor : MonoBehaviour
     public string inputBack;
     public string inputLeft;
     public string inputRight;
+    public string inputRun;
 
     public Vector3 jumpspeed;
     CapsuleCollider playerCollider;
+
+    public Animator animator;
 
 
     void Start()
@@ -27,9 +30,24 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(inputFront))
+        if (Input.GetKey(inputFront) && !Input.GetKey(inputRun))
         {
             transform.Translate(0, 0, walkSpeeed * Time.deltaTime);
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+        if (Input.GetKey(inputRun) && Input.GetKey(inputFront))
+        {
+            transform.Translate(0, 0, runSpeed * Time.deltaTime);
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
         
         if (Input.GetKey(inputBack))
