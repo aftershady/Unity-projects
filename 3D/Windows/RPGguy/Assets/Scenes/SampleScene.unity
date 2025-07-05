@@ -2545,17 +2545,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 2938932108451442641, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354001980473317491, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4354001980473317491, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.54
+      objectReference: {fileID: 0}
     - target: {fileID: 6122395132086073113, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 521629363}
     - target: {fileID: 6122395132086073113, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: inputRun
-      value: w
+      value: right ctrl
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122395132086073113, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: inputJump
+      value: space
       objectReference: {fileID: 0}
     - target: {fileID: 6122395132086073113, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: turnSpeed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122395132086073113, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: jumpspeed.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8552995813510555801, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_LocalPosition.x
