@@ -60,12 +60,24 @@ public class CharacterMotor : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(inputBack) && !Input.GetKey(inputJump))
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isBack", true);
+        }
+
         if (Input.GetKeyDown(inputJump))
         {
             GetComponent<Rigidbody>().AddForce(jumpspeed, ForceMode.Impulse);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
             animator.SetBool("isJumping", true);
+        }
+        else
+        {
+            animator.SetBool("isBack", false);
         }
 
         if (Input.GetKey(inputBack))
