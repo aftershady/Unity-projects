@@ -60,12 +60,16 @@ public class CharacterMotor : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(inputBack) && !Input.GetKey(inputJump))
+        if (Input.GetKey(inputBack))
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
             animator.SetBool("isJumping", false);
             animator.SetBool("isBack", true);
+        }
+        else
+        {
+            animator.SetBool("isBack", false);
         }
 
         if (Input.GetKeyDown(inputJump))
@@ -74,10 +78,6 @@ public class CharacterMotor : MonoBehaviour
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
             animator.SetBool("isJumping", true);
-        }
-        else
-        {
-            animator.SetBool("isBack", false);
         }
 
         if (Input.GetKey(inputBack))
