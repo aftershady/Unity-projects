@@ -23,6 +23,9 @@ public class CharacterMotor : MonoBehaviour
     public Vector3 jumpspeed;
     CapsuleCollider playerCollider;
 
+    public bool isGroundedBool;
+
+
     public Animator animator;
 
 
@@ -31,40 +34,47 @@ public class CharacterMotor : MonoBehaviour
         playerCollider = gameObject.GetComponent<CapsuleCollider>();
     }
 
+    bool isGrounded()
+    {
+        return Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, 0.2f);
+    }
+
     void Update()
     {
-        if (Input.GetKey(inputFront) && !Input.GetKey(inputRun) && !Input.GetKey(inputJump))
+        isGroundedBool = isGrounded();
+
+        //check if the player is grounded
+        if (Input.GetKeyDown(inputJump) && isGrounded())
+        {
+            GetComponent<Rigidbody>().AddForce(jumpspeed, ForceMode.Impulse);
+            animator.SetTrigger("isJumping");
+        }
+
+        //player is walking or running
+        if (Input.GetKey(inputFront) && !Input.GetKey(inputRun))
         {
             transform.Translate(0, 0, walkSpeeed * Time.deltaTime);
             animator.SetBool("isWalking", true);
             animator.SetBool("isRunning", false);
-            animator.SetBool("isJumping", false);
         }
         else if (Input.GetKey(inputFront) && Input.GetKey(inputRun))
         {
             transform.Translate(0, 0, runSpeed * Time.deltaTime);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", true);
-            animator.SetBool("isJumping", false);
-        }
-        else if (Input.GetKey(inputFront) && Input.GetKey(inputJump))
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", false);
-            animator.SetBool("isJumping", true);
         }
         else
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
-
         }
 
+        //player is moving back
         if (Input.GetKey(inputBack))
         {
+            transform.Translate(0, 0, -(walkSpeeed / 2) * Time.deltaTime);
             animator.SetBool("isWalking", false);
             animator.SetBool("isRunning", false);
-            animator.SetBool("isJumping", false);
             animator.SetBool("isBack", true);
         }
         else
@@ -72,18 +82,6 @@ public class CharacterMotor : MonoBehaviour
             animator.SetBool("isBack", false);
         }
 
-        if (Input.GetKeyDown(inputJump))
-        {
-            GetComponent<Rigidbody>().AddForce(jumpspeed, ForceMode.Impulse);
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", false);
-            animator.SetBool("isJumping", true);
-        }
-
-        if (Input.GetKey(inputBack))
-        {
-            transform.Translate(0, 0, -(walkSpeeed / 2) * Time.deltaTime);
-        }
 
         if (Input.GetKey(inputLeft))
         {
