@@ -2682,16 +2682,44 @@ PrefabInstance:
       value: 58.121613
       objectReference: {fileID: 0}
     - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.008012496
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2339643
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.005017564
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9565277
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.09234101
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.16045927
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.22534573
+      objectReference: {fileID: 0}
+    - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 25.173662
+      value: 5.989
       objectReference: {fileID: 0}
     - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 42.283207
+      value: 20.518
       objectReference: {fileID: 0}
     - target: {fileID: -639763325267172598, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -32.014072
+      value: 27.598
       objectReference: {fileID: 0}
     - target: {fileID: -334426454937481025, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2775,7 +2803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438416540242302135, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_Radius
-      value: 0.54582375
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2438416540242302135, guid: 1626b5d32c570bf4bb4d0eafa603237f, type: 3}
       propertyPath: m_Center.x
