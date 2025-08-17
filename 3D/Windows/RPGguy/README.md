@@ -1,3 +1,5 @@
+# project closed for know, reason: not enough power with my pc, Free projects will be on linux for know
+
 # FPS guy
 
 ## Developers
