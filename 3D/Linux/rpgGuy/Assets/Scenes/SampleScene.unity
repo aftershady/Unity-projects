@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 256861354}
   - component: {fileID: 256861353}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 336965872}
   - component: {fileID: 336965871}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: slot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 797625744}
   - component: {fileID: 797625743}
   m_Layer: 5
-  m_Name: Image
+  m_Name: slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -895,9 +895,10 @@ GameObject:
   - component: {fileID: 1113213633}
   - component: {fileID: 1113213636}
   - component: {fileID: 1113213635}
+  - component: {fileID: 1113213637}
   - component: {fileID: 1113213634}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,6 +991,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113213632}
   m_CullTransparentMesh: 1
+--- !u!114 &1113213637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113213632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a777fac6aa48453db469456ec5bb6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons: []
 --- !u!1 &1610725267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1016,7 @@ GameObject:
   - component: {fileID: 1610725270}
   - component: {fileID: 1610725269}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: slot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,7 +1091,7 @@ GameObject:
   - component: {fileID: 1690300386}
   - component: {fileID: 1690300385}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: slot6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1166,7 @@ GameObject:
   - component: {fileID: 1837739425}
   - component: {fileID: 1837739424}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: slot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,13 +1602,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2675138028041415763}
   - component: {fileID: 3338345383821342445}
-  - component: {fileID: 3338345383821342446}
   - component: {fileID: 3338345383821342444}
   - component: {fileID: 3338345383821342443}
   - component: {fileID: 3338345383821342442}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1694,20 +1707,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &3338345383821342446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3338345383821342441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a777fac6aa48453db469456ec5bb6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 11400000, guid: 139df8b200d4ded05bbbe77051bf56b8, type: 2}
 --- !u!4 &3597007396622193111
 Transform:
   m_ObjectHideFlags: 0

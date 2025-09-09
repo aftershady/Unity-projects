@@ -15,7 +15,13 @@ public class CollectibleItem : MonoBehaviour
         }
     }
 
-
-
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Inventory.Instance.AddWeapon(weapon);
+            Destroy(this.gameObject);
+        }
+    }
 
 }
