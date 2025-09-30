@@ -13,15 +13,34 @@ public class CollectibleItem : MonoBehaviour
         {
             GameObject modelInstance = Instantiate(weapon.model, this.transform);
         }
+
+        StartCoroutine(moveItem());
     }
+
+    private IEnumerator moveItem()
+    {
+        float amplitude = 0.5f; // height of movement
+        float frequency = 1f;   // speed of movement
+        Vector3 startPos = transform.position;
+
+        while (true)
+        {
+            float yOffset = Mathf.Sin(Time.time * frequency) * amplitude;
+            transform.position = startPos + new Vector3(0, yOffset, 0);
+            yield return null;
+        }
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Inventory.Instance.AddWeapon(weapon);
-            Destroy(this.gameObject);
+            if (!Inventory.Instance.weaponIsInInventory)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
-
 }

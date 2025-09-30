@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    int weaponCurrentIndex = 0;
+    public bool weaponIsInInventory = false;
+    public int weaponCurrentIndex = 0;
     public static Inventory Instance { get; private set; }
 
     private void Awake()
@@ -33,10 +34,12 @@ public class Inventory : MonoBehaviour
             weapons.Add(weapon);
             Debug.Log($"Weapon {weapon.name} added to inventory.");
             RefreshInventory();
+            weaponIsInInventory = false;
         }
         else
         {
             Debug.Log($"Weapon {weapon.name} is already in inventory.");
+            weaponIsInInventory = true;
         }
     }
 
@@ -57,8 +60,14 @@ public class Inventory : MonoBehaviour
                     image.sprite = null;
                 }
             }
-        }
 
+            var childImage = transform.GetChild(i).childCount > 0 ? transform.GetChild(i).GetChild(0).gameObject : null;
+            if (childImage != null)
+            {
+                childImage.SetActive(i == weaponCurrentIndex);
+            }
+
+        }
     }
 
     public void GetCurrentWeapon()
