@@ -6,6 +6,11 @@ public class Inventory : MonoBehaviour
 {
     public bool weaponIsInInventory = false;
     public int weaponCurrentIndex = 0;
+    public List<Weapon> weapons = new List<Weapon>();
+
+    public List<GameObject> uiSelectors = new List<GameObject>();
+
+    public List<GameObject> weaponsSkins = new List<GameObject>();
     public static Inventory Instance { get; private set; }
 
     private void Awake()
@@ -25,7 +30,7 @@ public class Inventory : MonoBehaviour
         GetCurrentWeapon();
     }
 
-    public List<Weapon> weapons = new List<Weapon>();
+
 
     public void AddWeapon(Weapon weapon)
     {
@@ -61,10 +66,32 @@ public class Inventory : MonoBehaviour
                 }
             }
 
-            var childImage = transform.GetChild(i).childCount > 0 ? transform.GetChild(i).GetChild(0).gameObject : null;
-            if (childImage != null)
+            foreach (GameObject selector in uiSelectors)
             {
-                childImage.SetActive(i == weaponCurrentIndex);
+                if (selector != null)
+                {
+                    selector.SetActive(false);
+                }
+            }
+            foreach (GameObject skin in weaponsSkins)
+            {
+                if (skin != null)
+                {
+                    skin.SetActive(false);
+                }
+            }
+            if (weaponCurrentIndex < uiSelectors.Count && uiSelectors[weaponCurrentIndex] != null)
+            {
+                uiSelectors[weaponCurrentIndex].SetActive(true);
+            }
+
+            if (weaponCurrentIndex >= 0 && weaponCurrentIndex < weapons.Count && weapons[weaponCurrentIndex] != null)
+            {
+                int skinIndex = weapons[weaponCurrentIndex].id;
+                if (skinIndex >= 0 && skinIndex < weaponsSkins.Count && weaponsSkins[skinIndex] != null)
+                {
+                    weaponsSkins[skinIndex].SetActive(true);
+                }
             }
 
         }

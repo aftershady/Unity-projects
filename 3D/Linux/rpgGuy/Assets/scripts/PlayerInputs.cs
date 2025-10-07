@@ -11,7 +11,12 @@ public class PlayerInputs : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-                Inventory.Instance.weaponCurrentIndex++;
+            Inventory.Instance.weaponCurrentIndex++;
+            if(Inventory.Instance.weaponCurrentIndex > 5)
+            {
+                Inventory.Instance.weaponCurrentIndex = 0;
+            }
+            Inventory.Instance.RefreshInventory();
         }
     }
 }

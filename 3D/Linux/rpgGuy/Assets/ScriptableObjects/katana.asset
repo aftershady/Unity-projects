@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d3621b7ff1d0f6e895da7cd307783d, type: 3}
   m_Name: katana
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   itemName: katana
   icon: {fileID: 21300000, guid: 46d97ca28c62e3c27ba0a47d43c8455f, type: 3}
   damage: 15
