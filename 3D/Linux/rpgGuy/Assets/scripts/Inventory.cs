@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public bool weaponIsInInventory = false;
-    public int weaponCurrentIndex = 0;
-    public List<Weapon> weapons = new List<Weapon>();
+    public bool weaponIsInInventory { get; private set; } = false;
+    [SerializeField] int weaponCurrentIndex = 0;
+    [SerializeField] List<Weapon> weapons = new List<Weapon>();
 
-    public List<GameObject> uiSelectors = new List<GameObject>();
+    [SerializeField] List<GameObject> uiSelectors = new List<GameObject>();
 
-    public List<GameObject> weaponsSkins = new List<GameObject>();
+    [SerializeField] List<GameObject> weaponsSkins = new List<GameObject>();
     public static Inventory Instance { get; private set; }
 
     private void Awake()
@@ -104,5 +104,15 @@ public class Inventory : MonoBehaviour
         {
             var currentWeapon = weapons[weaponCurrentIndex];
         }
+    }
+
+    public void moveCurrentIndex()
+    {
+        weaponCurrentIndex++;
+        if (weaponCurrentIndex > 5)
+        {
+            weaponCurrentIndex = 0;
+        }
+        RefreshInventory();
     }
 }

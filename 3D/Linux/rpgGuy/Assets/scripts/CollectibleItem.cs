@@ -17,6 +17,7 @@ public class CollectibleItem : MonoBehaviour
         StartCoroutine(moveItem());
     }
 
+    // oscillate the item up and down
     private IEnumerator moveItem()
     {
         float amplitude = 0.5f; // height of movement
@@ -31,7 +32,7 @@ public class CollectibleItem : MonoBehaviour
         }
     }
 
-
+    // add weapon on collision with player
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

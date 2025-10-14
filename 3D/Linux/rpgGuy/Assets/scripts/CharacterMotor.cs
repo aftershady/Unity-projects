@@ -82,12 +82,12 @@ public class CharacterMotor : MonoBehaviour
             animator.SetBool("isBack", false);
         }
 
-
+        //player is turning left
         if (Input.GetKey(inputLeft))
         {
             transform.Rotate(0, -turnSpeed * Time.deltaTime, 0);
         }
-
+        //player is turning right
         if (Input.GetKey(inputRight))
         {
             transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
