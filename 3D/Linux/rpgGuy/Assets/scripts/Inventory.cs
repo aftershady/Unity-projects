@@ -85,6 +85,7 @@ public class Inventory : MonoBehaviour
                 uiSelectors[weaponCurrentIndex].SetActive(true);
             }
 
+            //active the weapon skin in hand
             if (weaponCurrentIndex >= 0 && weaponCurrentIndex < weapons.Count && weapons[weaponCurrentIndex] != null)
             {
                 int skinIndex = weapons[weaponCurrentIndex].id;
@@ -106,12 +107,24 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //move index to the right
     public void moveCurrentIndex()
     {
         weaponCurrentIndex++;
         if (weaponCurrentIndex > 5)
         {
             weaponCurrentIndex = 0;
+        }
+        RefreshInventory();
+    }
+
+    //move index to the left
+    public void moveCurrentIndexBack()
+    {
+        weaponCurrentIndex--;
+        if (weaponCurrentIndex < 0)
+        {
+            weaponCurrentIndex = 5;
         }
         RefreshInventory();
     }

@@ -7,27 +7,38 @@ public class CharacterMotor : MonoBehaviour
 {
 
     //speed
-    public float walkSpeeed;
-    public float runSpeed;
-    public float turnSpeed;
+    [SerializeField] float walkSpeeed;
+    [SerializeField] float runSpeed;
+    [SerializeField] float turnSpeed;
 
     //inputs
-    public string inputFront;
-    public string inputBack;
-    public string inputLeft;
-    public string inputRight;
-    public string inputRun;
+    [SerializeField] string inputFront;
+    [SerializeField] string inputBack;
+    [SerializeField] string inputLeft;
+    [SerializeField] string inputRight;
+    [SerializeField] string inputRun;
 
-    public string inputJump;
+    [SerializeField] string inputJump;
 
-    public Vector3 jumpspeed;
+    [SerializeField] Vector3 jumpspeed;
     CapsuleCollider playerCollider;
 
-    public bool isGroundedBool;
+    [SerializeField] bool isGroundedBool;
 
 
     public Animator animator;
+    public static CharacterMotor Instance { get; private set; }
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("Duplicate CharacterMotor instance found. Destroying the new one.");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     void Start()
     {

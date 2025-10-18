@@ -1215,7 +1215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a777fac6aa48453db469456ec5bb6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponIsInInventory: 0
   weaponCurrentIndex: 0
   weapons: []
   uiSelectors:
@@ -1984,6 +1983,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1095086875364344871, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095086875364344871, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
       propertyPath: m_Name
       value: CollectibleObjet
       objectReference: {fileID: 0}
@@ -2026,6 +2029,30 @@ PrefabInstance:
     - target: {fileID: 4331702189354802707, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103279016042946619, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Size.x
+      value: 0.37336767
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103279016042946619, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Size.y
+      value: 1.586129
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103279016042946619, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Size.z
+      value: 0.41522408
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103279016042946619, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0013280511
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103279016042946619, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Center.y
+      value: 0.28830707
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103279016042946619, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
+      propertyPath: m_Center.z
+      value: 0.013609409
       objectReference: {fileID: 0}
     - target: {fileID: 6948116276705193726, guid: ba370d899621d164f93a27ced85ccc07, type: 3}
       propertyPath: weapon
